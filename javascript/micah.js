@@ -15,8 +15,9 @@ function testMe()
 		[
 			{
 				title: 'Failing Successfully',
-				start: '2016-07-14 08:00',
-				description: '<p>A presentation on the philosophy of how failing can change your life.</p>'
+				start: moment(),
+				description: '<p>A presentation on the philosophy of how failing can change your life.</p>',
+				attendees: [{firstName:'John',lastName: 'Smitty'}]
 			}
 		],
 		dayClick: function()
@@ -32,6 +33,8 @@ function testMe()
 			//set the values and open the modal
 			console.log( event );
 			$("#eventInfo").html(event.description);
+			$("#eventStartTime").html("<p>"+moment(event.start).format()+"</p>");
+			$("#eventAttendees").html("<p>"+event.attendees[0].firstName+"</p>");
 			$("#eventLink").attr('href', 'modify-event-micah.html?id='+event._id);
 			$("#eventContent").dialog({
 				modal: false,
@@ -61,3 +64,14 @@ function updateEvent(the_event) {
       function (reponse) { console.log('successfully updated task.'); }
     );
 };
+
+function getParam(paramName)
+{
+	var params={};
+	window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,
+		function(str,key,value)
+		{
+			params[key] = value;
+		}
+	);
+}
