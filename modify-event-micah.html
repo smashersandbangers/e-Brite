@@ -55,7 +55,8 @@
 		<h2>Aliquam erat volutpat</h2>
 		<p>Dummy page.</p>
 		<script>
-			document.write( "the event name is "+getEventMicah( '#calendar', getParamValue('id') ) );
+			log( getEvent( getParamValue('id') ) );
+			document.write( "the event name is "+getEvent( getParamValue('id') ).title );
 		</script>
 	</section>
 	

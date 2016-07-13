@@ -29,7 +29,7 @@ function testMe()
 			$("#eventInfo").html(event.description);
 			$("#eventStartTime").html("<p>"+moment(event.start).format()+"</p>");
 			$("#eventAttendees").html("<p>"+event.attendees[0].firstName+"</p>");
-			$("#eventLink").attr('href', 'modify-event-micah.html?id='+event._id);
+			$("#eventLink").attr('href', 'modify-event-micah.html?id='+event.eventid);
 			$("#eventContent").dialog({
 				modal: false,
 				title: event.title

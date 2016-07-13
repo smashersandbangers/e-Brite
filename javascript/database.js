@@ -14,7 +14,7 @@ function getEvents()
 	
 	//console.log( events );
 	if(preloadEvents)
-		return preloadedEvents;
+		return preLoadedEvents;
 	else
 		return NULL;
 }
