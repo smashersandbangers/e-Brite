@@ -16,7 +16,7 @@ function testMe()
 			{
 				title: 'Failing Successfully',
 				start: '2016-07-14 08:00',
-				description: 'A presentation on the philosophy of how failing can change your life'
+				description: '<p>A presentation on the philosophy of how failing can change your life.</p>'
 			}
 		],
 		dayClick: function()
@@ -32,9 +32,9 @@ function testMe()
 			//set the values and open the modal
 			console.log( event );
 			$("#eventInfo").html(event.description);
-			$("#eventLink").attr('href', event.url);
+			$("#eventLink").attr('href', 'modify-event-micah.html?id='+event._id);
 			$("#eventContent").dialog({
-				modal: true,
+				modal: false,
 				title: event.title
 			});
 			return false;
