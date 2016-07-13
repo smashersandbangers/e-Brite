@@ -65,8 +65,9 @@ function updateEvent(the_event) {
     );
 };
 
-function getParam(paramName)
+function getParamValue(paramName)
 {
+	log( window.location.search );
 	var params={};
 	window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,
 		function(str,key,value)
@@ -74,4 +75,8 @@ function getParam(paramName)
 			params[key] = value;
 		}
 	);
+	//log( params[paramName] );
+	
+	return params[paramName];
 }
+
