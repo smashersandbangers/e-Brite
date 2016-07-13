@@ -2,18 +2,22 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<link rel="icon" href="./favicon.png">
-	<link rel="stylesheet" href="./styles/bootstrap-v4.css">
-	<link rel="stylesheet" href="./styles/events.css">
+	<link rel="icon" href="favicon.png">
+	<link rel="stylesheet" href="styles/bootstrap-v4.css">
+	<link rel="stylesheet" href="styles/events.css">
+	<link rel="stylesheet" href="styles/jquery-ui.css">
 	<link rel='stylesheet' href='fullcalendar/fullcalendar.css' />
+	
+	<script src='fullcalendar/lib/jquery.min.js'></script>
+	<script src='fullcalendar/lib/jquery-ui.js'></script>
+	<script src='fullcalendar/lib/moment.min.js'></script>
+	<script src='fullcalendar/fullcalendar.js'></script>
+	<script src='qtip/jquery.qtip.js'></script>
 	
 	<script src="javascript/micah.js"></script>
 	<script src="javascript/database.js"></script>
 	<script src="javascript/presentation.js"></script>
 	<script src="javascript/events-database.js"></script>
-	<script src='fullcalendar/lib/jquery.min.js'></script>
-	<script src='fullcalendar/lib/moment.min.js'></script>
-	<script src='fullcalendar/fullcalendar.js'></script>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Page Title</title>
@@ -30,6 +34,11 @@
         	<h1 id="mouse">Page Heading</h1>
 	</header>
 
+	 <div id="eventContent" title="Event Details" style="display:none;">
+        <div id="eventInfo" class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix ui-draggable-handle"></div>
+        <p><strong><a id="eventLink" target="_blank">Read More</a></strong></p>
+    </div>
+	
 	<section class="container card" id="">
 		<h2>Aliquam erat volutpat</h2>
 		<p>Nunc eget porta enim. Nullam nec nisi et tortor vulputate laoreet at et lorem. Integer sagittis eget mauris eu eleifend. Ut sodales mi ut sollicitudin tristique. Ut vitae eros euismod neque dignissim suscipit in ac eros. Sed eu tincidunt libero, sit amet luctus magna. Donec vulputate justo et sagittis pretium. Pellentesque finibus ex massa, sit amet consectetur lacus imperdiet nec. Aenean diam massa, accumsan ac ullamcorper eu, tempor ut sapien. Proin pellentesque et ligula vitae posuere. Curabitur sit amet auctor neque, quis aliquet quam. Nulla sagittis risus mauris, quis varius neque posuere id. Duis semper cursus velit non sollicitudin. Nunc at fringilla ex.</p>
