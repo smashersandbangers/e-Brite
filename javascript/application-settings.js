@@ -1,12 +1,15 @@
-var preloadedEvents = [
+//the debug variable, turn off in production
+var debug = true;
+
+//our preloaded events
+var preLoadedEvents = [
 	{
 		'eventid': '01',
-		'eventName': 'Success Through Failures',
+		'title': 'Success Through Failures',
 		'eventLocation': 'Atlanta',
-		'eventDate': '4/22/2017',
-		'eventSeats': '8',
-		'eventCurrentAttendees': '8',
-		'eventList':[
+		'start': moment('2016-07-22'),
+
+		'attendees':[
 			{
 			'firstName': 'John',
 			'lastName': 'Smitty'
@@ -19,12 +22,12 @@ var preloadedEvents = [
 	},
 	{
 		"eventid": "02",
-		'eventName': 'Successfully Failing',
+		'title': 'Successfully Failing',
 		'eventLocation': 'Boston',
-		'eventDate': '4/24/2017',
+		'start': moment('2016-07-15'),
 		'eventSeats': '10',
 		'eventCurrentAttendees': '7',
-		'eventList':[
+		'attendees':[
 			{
 			'firstName': 'John',
 			'lastName': 'Smitty'
@@ -37,12 +40,12 @@ var preloadedEvents = [
 	},
 	{
 		"eventid": "03",
-		'eventName': 'To Fail or Not to Fail',
+		'title': 'To Fail or Not to Fail',
 		'eventLocation': 'Boston',
-		'eventDate': '4/24/2017',
+		'start': moment('2016-07-27'),
 		'eventSeats': '10',
 		'eventCurrentAttendees': '33',
-		'eventList':[
+		'attendees':[
 			{
 			'firstName': 'John',
 			'lastName': 'Smitty'

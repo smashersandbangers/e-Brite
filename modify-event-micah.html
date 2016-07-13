@@ -21,7 +21,7 @@
 	<script src="javascript/utility.js"></script>
 	<script src="javascript/database.js"></script>
 	<script src="javascript/presentation.js"></script>
-	<script src="javascript/events-database.js"></script>
+	<script src="javascript/application-settings.js"></script>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Page Title</title>
@@ -46,9 +46,17 @@
 	<section class="container card" id="">
 		<h2>Aliquam erat volutpat</h2>
 		<p>Dummy page.</p>
-<script>
-document.write( "the event id is "+getParamValue('id') );
-</script>
+		<script>
+			document.write( "the event id is "+getParamValue('id') );
+		</script>
+	</section>
+	
+	<section class="container card" id="">
+		<h2>Aliquam erat volutpat</h2>
+		<p>Dummy page.</p>
+		<script>
+			document.write( "the event name is "+getEventMicah( '#calendar', getParamValue('id') ) );
+		</script>
 	</section>
 	
 	<section class="container card" id="">

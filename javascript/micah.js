@@ -1,3 +1,4 @@
+//let's get this started
 function testMe()
 {
 	console.log( "hi" );
@@ -11,15 +12,8 @@ function testMe()
 		editable: true,
 		durationEditable: true,
 		weekends: false,
-		events:
-		[
-			{
-				title: 'Failing Successfully',
-				start: moment(),
-				description: '<p>A presentation on the philosophy of how failing can change your life.</p>',
-				attendees: [{firstName:'John',lastName: 'Smitty'}]
-			}
-		],
+		//referencing my preloaded events variable
+		events: preLoadedEvents,
 		dayClick: function()
 		{
 			//alert('a day has been clicked!');
@@ -47,11 +41,13 @@ function testMe()
 	console.log( myCalendar );
 }
 
+//what is going on here??
 function switchToDay()
 {
 	
 }
 
+//no idea what this does yet
 function updateEvent(the_event) {
     $.update(
       "/events/" + the_event.id,
@@ -65,10 +61,13 @@ function updateEvent(the_event) {
     );
 };
 
+//send the name of the parameter to get it's value
 function getParamValue(paramName)
 {
-	log( window.location.search );
+	//log( window.location.search );
 	var params={};
+	
+	//this regex was stolen from stack overflow http://stackoverflow.com/questions/19491336/get-url-parameter-jquery-or-how-to-get-query-string-values-in-js
 	window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,
 		function(str,key,value)
 		{
@@ -80,3 +79,11 @@ function getParamValue(paramName)
 	return params[paramName];
 }
 
+function getEventMicah(eventid)
+{
+	getEventsMicah('#calendar', eventid);
+}
+function getEventsMicah(calendarName, eventid)
+{
+	console.log( $('#calendar') );
+}
