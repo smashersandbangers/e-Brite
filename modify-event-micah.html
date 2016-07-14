@@ -36,7 +36,7 @@
 		</ul>
 	</nav>
 	<header class="jumbotron text-xs-center" id="page-header" style="margin-top:50px;">
-        	<h1 id="mouse">Single Event</h1>
+        	<h1 id="mouse">Modify Event</h1>
 	</header>
 
 	 <div id="eventContent" title="Event Details" style="display:none;">
@@ -45,15 +45,19 @@
     </div>
 	
 	<section class="container card" id="">
+		<h2>Event Details</h2>
 		<script>
-			document.write( "the event id is "+getParamValue('id') );
+			log( getEvent( getParamValue('id') ) );
+			document.write( "<p>the event id is "+getParamValue('id')+"</p>" );
+			document.write( "<p>the event name is "+getEvent( getParamValue('id') ).title+"</p>" );
 		</script>
 	</section>
 	
 	<section class="container card" id="">
+		<h2>Attendees</h2>
+		<p>Needs to be implemented.</p>
 		<script>
-			log( getEvent( getParamValue('id') ) );
-			document.write( "the event name is "+getEvent( getParamValue('id') ).title );
+			
 		</script>
 	</section>
 	
