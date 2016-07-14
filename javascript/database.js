@@ -20,12 +20,22 @@ function getEvents()
 function getEvent(eventid)
 {
 	var defaultTestEvent = {
-				"eventName": "Successfully Failing",
-				"eventLocation": "Boston",
-				"eventDate": "4/24/2017",
-				"eventSeats": "10",
-				"eventCurrentAttendees": "7"
-			};
+		'eventid': '01',
+		'title': 'Success Through Failures',
+		'eventLocation': 'Atlanta',
+		'start': moment('2016-07-22'),
+
+		'attendees':[
+			{
+			'firstName': 'John',
+			'lastName': 'Smitty'
+			},
+			{
+			'firstName': 'Sue',
+			'lastName': 'Mee'
+			}
+		]
+	};
 	
 	//parses events to search for matching eventid
 	var events = getEvents();
