@@ -27,14 +27,6 @@ function getEvent(eventid)
 				"eventCurrentAttendees": "7"
 			};
 	
-    //Mathews test code block
-	//document.getElementById("liEn").innerHTML="Successfully Failing";
-	//document.getElementById("liEl").innerHTML="Boston";
-	//document.getElementById("liEd").innerHTML="4/24/2017";
-	//document.getElementById("liEs").innerHTML="10";
-	//document.getElementById("liCA").innerHTML="7";
-	
-	console.log( location.pathname );
 	//parses events to search for matching eventid
 	var events = getEvents();
 	for( var i=0; i<events.length; i++){
