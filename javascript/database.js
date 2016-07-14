@@ -1,6 +1,3 @@
-var preloadEvents = true;
-var testApplicationMode = true;
-
 //takes a string username, string password and a boolean for is the password hashed
 function authenticateUser(username, userpassword, hashed)
 {

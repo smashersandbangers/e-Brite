@@ -1,5 +1,7 @@
 //the debug variable, turn off in production
 var debug = true;
+//pre-load our events, maybe this is a question on initial app launch
+var preloadEvents = true;
 
 //our preloaded events
 var preLoadedEvents = [
