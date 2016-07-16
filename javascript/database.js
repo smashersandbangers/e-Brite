@@ -52,3 +52,13 @@ function registerEvent(user, eventid)
 {
 	return true;
 }
+
+function getAttendees(eventid)
+{
+	var attendees = {
+			'firstName': 'Test',
+			'lastName': 'User'
+			};
+	
+	return attendees;
+}
