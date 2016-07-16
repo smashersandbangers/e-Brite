@@ -81,12 +81,25 @@ function getParamValue(paramName)
 	return params[paramName];
 }
 
-function storeEventsMicah(calendarName, eventsObject)
+function saveCalendarMicah(calendarName, eventsObject)
 {
 	localStorage.setItem(calendarName, JSON.stringify(eventsObject));
 }
-function getEventsMicah(calendarName)
+function getCalendarMicah(calendarName)
 {
 	console.log( JSON.parse(localStorage.getItem(calendarName)) );
 	return JSON.parse( localStorage.getItem(calendarName));
+}
+function addEventToCalendarMicah(calendarName)
+{
+	var newTitle = $('#newTitle').innerText;
+	var myCalendar = getCalendarEvents( calendarName );
+	var newIndex = myCalendar.length;
+	log( newIndex );
+	
+	
+	myCalendar[newIndex] = JSON.parse( '{"eventid":'}' );
+	log( myCalendar );
+	
+	
 }
