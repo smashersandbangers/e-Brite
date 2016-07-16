@@ -92,13 +92,15 @@ function getCalendarMicah(calendarName)
 }
 function addEventToCalendarMicah(calendarName)
 {
-	var newTitle = $('#newTitle').innerText;
+	log( $('#newTitle') );
+	var newTitle = '{"title":'+$('#newTitle')[0].value+'}';
+	log( newTitle );
 	var myCalendar = getCalendarEvents( calendarName );
 	var newIndex = myCalendar.length;
 	log( newIndex );
 	
 	
-	myCalendar[newIndex] = JSON.parse( '{"eventid":'}' );
+	myCalendar[newIndex] = JSON.parse( newTitle );
 	log( myCalendar );
 	
 	
