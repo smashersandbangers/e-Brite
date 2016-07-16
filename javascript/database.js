@@ -59,13 +59,13 @@ function getAttendees(eventid)
 }
 
 //implementing storing the event to the local storage
-function storeEvents(calendarName, eventsObject)
+function saveCalendar(calendarName, eventsObject)
 {
 	localStorage.setItem(calendarName, JSON.stringify(eventsObject));
 }
 
 //implementing the get events from storage method
-function getEventsMicah(calendarName)
+function getCalendar(calendarName)
 {
 	console.log( JSON.parse(localStorage.getItem(calendarName)) );
 	return JSON.parse( localStorage.getItem(calendarName));
