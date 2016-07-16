@@ -53,10 +53,13 @@ function addEventToCalendarMicah(calendarName)
 	log( jQuery('#newTitle') );
 	var newTitle = '{"title":"'+jQuery('#newTitle')[0].value+'"}';
 	log( newTitle );
+	log( calendarName );
 	
 	var myCalendar = getCalendarEvents( calendarName );
 	var newIndex = myCalendar.length;
 	
 	myCalendar[newIndex] = JSON.parse( newTitle );
 	log( myCalendar );
+	
+	saveCalendarEvents( calendarName, myCalendar);
 }
