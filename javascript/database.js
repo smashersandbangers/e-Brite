@@ -47,12 +47,7 @@ function getEvent(eventid)
 	return defaultTestEvent;
 }
 
-//returns true or false, depening on age of user and number of available seats
-function registerEvent(user, eventid)
-{
-	return true;
-}
-
+//stub method for retrieve attendees
 function getAttendees(eventid)
 {
 	var attendees = {
@@ -61,4 +56,10 @@ function getAttendees(eventid)
 			};
 	
 	return attendees;
+}
+
+//implementing storing the event to the local storage
+function storeEvents(calendarName, eventsObject)
+{
+	localStorage.setItem(calendarName, JSON.stringify(eventsObject));
 }
