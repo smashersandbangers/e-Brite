@@ -67,6 +67,10 @@ function saveCalendarEvents(calendarName, eventsObject)
 //implementing the get events from storage method
 function getCalendarEvents(calendarName)
 {
+	//check to see if the calendar exists
+	if( localStorage.getItem(calendarName) === null)
+		localStorage.setItem( calendarName, '[]' );
+	
 	console.log( JSON.parse(localStorage.getItem(calendarName)) );
 	return JSON.parse( localStorage.getItem(calendarName));
 }
