@@ -43,12 +43,6 @@ function testMe()
 	
 }
 
-//what is going on here??
-function switchToDay()
-{
-	
-}
-
 //no idea what this does yet
 function updateEvent(the_event) {
     $.update(
@@ -90,18 +84,17 @@ function getCalendarMicah(calendarName)
 	console.log( JSON.parse(localStorage.getItem(calendarName)) );
 	return JSON.parse( localStorage.getItem(calendarName));
 }
+
+//adding a new event to the existing event calendar
 function addEventToCalendarMicah(calendarName)
 {
 	log( $('#newTitle') );
-	var newTitle = '{"title":'+$('#newTitle')[0].value+'}';
+	var newTitle = '{"title":"'+$('#newTitle')[0].value+'"}';
 	log( newTitle );
+	
 	var myCalendar = getCalendarEvents( calendarName );
 	var newIndex = myCalendar.length;
-	log( newIndex );
-	
 	
 	myCalendar[newIndex] = JSON.parse( newTitle );
 	log( myCalendar );
-	
-	
 }
