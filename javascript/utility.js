@@ -7,7 +7,10 @@ function log( logItem ){
 //add the calendar names to the drop down list
 function loadApplication()
 {
+	//legacy calendar
 	saveCalendarEvents( "events", preLoadedEvents );
+	//new calendar for demo moving forward
+	saveCalendarEvents( "demoEvents", preLoadedEvents );
 	
 	addCalendarsToNavBar();
 	
@@ -21,7 +24,7 @@ function loadApplication()
 		editable: false,
 		durationEditable: true,
 		weekends: false,
-		events: getCalendarEvents("events"),
+		events: getCalendarEvents( getCurrentCalendar() ),
 		dayClick: function()
 		{
 			log("clicked");
@@ -51,5 +54,16 @@ function addCalendarsToNavBar()
 	log("cal nav bar");
 	log( jQuery('#calendarList') );
 	
-	jQuery('#calendarList').append( new Option('demo events','events') );
+	jQuery('#calendarList').append( new Option('demo events','demoEvents') );
+}
+
+function getCurrentCalendar()
+{
+	var calendarList = $('#calendarListx');
+	console.log( calendarList );
+	
+	if( calendarList.length == 1 )
+		return jQuery('#calendarList option:selected').text();
+	else
+		return "demoEvents";
 }
