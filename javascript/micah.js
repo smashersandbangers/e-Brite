@@ -1,7 +1,8 @@
 //let's get this started
 function testMe()
 {
-	console.log( "hi" );
+	storeEventsMicah( preLoadedEvents );
+	
 	var myCalendar = $('#calendar').fullCalendar(
 	{
         header:
@@ -9,11 +10,11 @@ function testMe()
 			left: 'month,agendaWeek,agendaDay'
 		},
 		height: 500,
-		editable: true,
+		editable: false,
 		durationEditable: true,
 		weekends: false,
 		//referencing my preloaded events variable
-		events: preLoadedEvents,
+		events: getEventsMicah(12),
 		dayClick: function()
 		{
 			//alert('a day has been clicked!');
@@ -25,7 +26,7 @@ function testMe()
         },
 		eventClick: function (event, jsEvent, view) {
 			//set the values and open the modal
-			console.log( event );
+			console.log( jsEvent );
 			$("#eventInfo").html(event.description);
 			$("#eventStartTime").html("<p>"+moment(event.start).format()+"</p>");
 			$("#eventAttendees").html("<p>"+event.attendees[0].firstName+"</p>");
@@ -38,7 +39,8 @@ function testMe()
 		}
     });
 	
-	console.log( myCalendar );
+	//console.log( myCalendar );
+	
 }
 
 //what is going on here??
@@ -79,11 +81,12 @@ function getParamValue(paramName)
 	return params[paramName];
 }
 
-function getEventMicah(eventid)
+function storeEventsMicah(events)
 {
-	getEventsMicah('#calendar', eventid);
+	localStorage.setItem("events", JSON.stringify(events));
 }
-function getEventsMicah(calendarName, eventid)
+function getEventsMicah(calendarName)
 {
-	console.log( $('#calendar') );
+	console.log( JSON.parse(localStorage.events) );
+	return JSON.parse( localStorage.events );
 }
