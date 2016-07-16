@@ -49,6 +49,7 @@ function loadApplication()
     });
 }
 
+//grabs the id selector for calendarList and appends the list of calendars
 function addCalendarsToNavBar()
 {
 	log("cal nav bar");
@@ -57,6 +58,7 @@ function addCalendarsToNavBar()
 	jQuery('#calendarList').append( new Option('demo events','demoEvents') );
 }
 
+//returns the text for the current selected calendar, does a validation check to make sure calednars exist
 function getCurrentCalendar()
 {
 	var calendarList = $('#calendarListx');
