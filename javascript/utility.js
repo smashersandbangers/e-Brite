@@ -14,7 +14,7 @@ function loadApplication()
 	
 	addCalendarsToNavBar();
 	
-	var myCalendar = jQuery('#calendar').fullCalendar(
+	var myFullCalendar = jQuery('#calendar').fullCalendar(
 	{
         header:
 		{
@@ -56,16 +56,23 @@ function addCalendarsToNavBar()
 	log( jQuery('#calendarList') );
 	
 	jQuery('#calendarList').append( new Option('demo events','demoEvents') );
+	jQuery('#calendarList').append( new Option('save events','testSave') );
 }
 
 //returns the text for the current selected calendar, does a validation check to make sure calednars exist
 function getCurrentCalendar()
 {
-	var calendarList = $('#calendarListx');
+	var calendarList = $('#calendarList');
 	console.log( calendarList );
 	
 	if( calendarList.length == 1 )
 		return jQuery('#calendarList option:selected').text();
 	else
 		return "demoEvents";
+}
+
+function changeSelectedCalendar()
+{
+	log( "hello" );
+	log( getCurrentCalendar() );
 }
