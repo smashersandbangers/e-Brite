@@ -1,7 +1,7 @@
 //let's get this started
 function testMe()
 {
-	storeEventsMicah( preLoadedEvents );
+	storeEvents( "events", preLoadedEvents );
 	
 	var myCalendar = $('#calendar').fullCalendar(
 	{
@@ -14,7 +14,7 @@ function testMe()
 		durationEditable: true,
 		weekends: false,
 		//referencing my preloaded events variable
-		events: getEventsMicah(12),
+		events: getEventsMicah("events"),
 		dayClick: function()
 		{
 			//alert('a day has been clicked!');
@@ -81,12 +81,12 @@ function getParamValue(paramName)
 	return params[paramName];
 }
 
-function storeEventsMicah(events)
+function storeEventsMicah(calendarName, eventsObject)
 {
-	localStorage.setItem("events", JSON.stringify(events));
+	localStorage.setItem(calendarName, JSON.stringify(eventsObject));
 }
 function getEventsMicah(calendarName)
 {
-	console.log( JSON.parse(localStorage.events) );
-	return JSON.parse( localStorage.events );
+	console.log( JSON.parse(localStorage.getItem(calendarName)) );
+	return JSON.parse( localStorage.getItem(calendarName));
 }
