@@ -66,5 +66,5 @@ function addEventToCalendarMicah(calendarName)
 
 function attachNewEventid()
 {
-	jQuery('#newEventid')[0].value '';
+	jQuery('#newEventid')[0].value = '';
 }
