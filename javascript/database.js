@@ -1,9 +1,3 @@
-//takes a string username, string password and a boolean for is the password hashed
-function authenticateUser(username, userpassword, hashed)
-{
-	return true;
-}
-
 //returns all events (for now, i would like to add after-date variable)
 function getEvents()
 {
