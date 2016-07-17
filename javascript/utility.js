@@ -63,10 +63,10 @@ function addCalendarsToNavBar()
 function getCurrentCalendar()
 {
 	var calendarList = $('#calendarList');
-	console.log( calendarList );
+	console.log( jQuery('#calendarList option:selected') );
 	
 	if( calendarList.length == 1 )
-		return jQuery('#calendarList option:selected').text();
+		return jQuery('#calendarList option:selected')[0].value;
 	else
 		return "demoEvents";
 }

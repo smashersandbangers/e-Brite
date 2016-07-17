@@ -71,6 +71,7 @@ function getCalendarEvents(calendarName)
 	if( !localStorage.getItem(calendarName) )
 		localStorage.setItem( calendarName, '[]' );
 	
+	console.log( calendarName );
 	console.log( JSON.parse(localStorage.getItem(calendarName)) );
 	return JSON.parse( localStorage.getItem(calendarName));
 }
