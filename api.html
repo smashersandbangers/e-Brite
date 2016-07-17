@@ -23,7 +23,7 @@
 	<script src="javascript/application-settings.js"></script>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Page Title</title>
+	<title>API</title>
 </head>
 <body>
 	<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
@@ -39,16 +39,52 @@
 		</form>
 	</nav>
 	<header class="jumbotron text-xs-center" id="page-header" style="margin-top:50px;">
-        	<h1 id="mouse">Page Heading</h1>
+        	<h1 id="mouse">Event Calendar Docs</h1>
 	</header>
 
 	<section class="container card" id="">
-		<h2>Aliquam erat volutpat</h2>
-		<p>Nunc eget porta enim. Nullam nec nisi et tortor vulputate laoreet at et lorem. Integer sagittis eget mauris eu eleifend. Ut sodales mi ut sollicitudin tristique. Ut vitae eros euismod neque dignissim suscipit in ac eros. Sed eu tincidunt libero, sit amet luctus magna. Donec vulputate justo et sagittis pretium. Pellentesque finibus ex massa, sit amet consectetur lacus imperdiet nec. Aenean diam massa, accumsan ac ullamcorper eu, tempor ut sapien. Proin pellentesque et ligula vitae posuere. Curabitur sit amet auctor neque, quis aliquet quam. Nulla sagittis risus mauris, quis varius neque posuere id. Duis semper cursus velit non sollicitudin. Nunc at fringilla ex.</p>
+		<h2>application-settings.js</h2>
+		<h3>Global Variables</h3>
+		<ul>
+			<li>debug - turn on debug mode (verbose logging) for the application</li>
+			<li>preLoadEvent - turn on demo mode for application</li>
+			<li>preLoadedEvents - the JSON formatted string set for demo events</li>
+		</ul>
 	</section>
 	
 	<section class="container card" id="">
-		<div id='calendar'></div>
+		<h2>database.js</h2>
+		<h3>Functions</h3>
+		<ul>
+			<li>getEvent(eventid) - returns a single event, in dev mode returns a defaultTestEvent</li>
+			<li>getEventAttendees(eventid) - returns a JSON string of event attendees</li>
+			<li>getCalendarEvents(calendarName) - returns a JSON strong of all events associated with local storage key value calendarName</li>
+			<li>saveCalendarEvents(calendarName, eventsObject) - places the events in local storage using key value calendarName</li>
+		</ul>
+		<h4>Depricated functions</h4>
+		<ul>
+			<li>getEvents - use getCalendarEvents(calendarName) instead</li>
+		</ul>
+	</section>
+	
+	<section class="container card" id="">
+		<h2>presentation.js</h2>
+		<h3>Functions</h3>
+		<ul>
+			<li>no functions yet</li>
+		</ul>
+	</section>
+	
+	<section class="container card" id="">
+		<h2>utility.js</h2>
+		<p>Used for helper functions.</p>
+		<h3>Functions</h3>
+		<ul>
+			<li>addCalendarsToNavBar() - adds all existing calendar names in local storage <strong>not fully implemented yet</strong></li>
+			<li>getCurrentCalendar() - returns the currently selected calendarName value from the drop down list<li>
+			<li>loadApplication() - used to load and configure the FullCalendar on the landing page</li>
+			<li>log() - shorthand function for console.log()</li>
+		</ul>
 	</section>
 	
 	<footer class="footer bg-info">
@@ -56,7 +92,5 @@
 			<small class="text-primary">&copy; Copyright Smashers and Bangers 2016</small>
 		</div>
 	</footer>
-
-	<script>$(document).ready(loadApplication());</script>
 </body>
 </html>
