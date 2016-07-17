@@ -42,7 +42,7 @@ function getEvent(eventid)
 }
 
 //stub method for retrieve attendees
-function getAttendees(eventid)
+function getEventAttendees(eventid)
 {
 	var attendees = {
 			'firstName': 'Test',
