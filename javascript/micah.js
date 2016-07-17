@@ -63,3 +63,8 @@ function addEventToCalendarMicah(calendarName)
 	
 	saveCalendarEvents( calendarName, myCalendar);
 }
+
+function attachNewEventid()
+{
+	jQuery('#newEventid')[0].value '';
+}
