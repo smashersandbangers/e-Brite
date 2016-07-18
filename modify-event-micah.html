@@ -12,7 +12,6 @@
 	<script src='fullcalendar/lib/jquery-ui.js'></script>
 	<script src='fullcalendar/lib/moment.min.js'></script>
 	<script src='fullcalendar/fullcalendar.js'></script>
-	<script src='qtip/jquery.qtip.js'></script>
 	
 	<script src="javascript/micah.js"></script>
 	<script src="javascript/mathew.js"></script>
@@ -33,11 +32,10 @@
 			<li class="nav-item"><a class="nav-link" href="#">Create an Event</a></li>
 			<li class="nav-item"><a class="nav-link" href="#">Find Events</a></li>
 			<li class="nav-item"><a class="nav-link" href="credits.html">Credits</a></li>
+			<li class="nav-item"><a class="nav-link" href="api.html">Our API</a></li>
 		</ul>
-		<form class="form-inline pull-xs-right">
-			<select class="form-control" id="calendarList">
-				
-			</select>
+		<form class="form-inline pull-xs-right" onchange="changeSelectedCalendar()">
+			<select class="form-control" id="calendarList"></select>
 		</form>
 	</nav>
 	<header class="jumbotron" id="page-header">
@@ -73,7 +71,7 @@
 				<p class="card-text">Needs to be implemented.</p>
 				<script>
 					//suggested method to implement
-					document.write( "<p>"+getAttendees(42).firstName+" "+getAttendees(42).lastName+"</p>" );
+					document.write( getEventAttendees( getCurrentCalendar(), getParamValue('id') ));
 				</script>
 			</section>
 		</section>
@@ -91,6 +89,6 @@
 		</div>
 	</footer>
 
-	<script>//$( document ).ready(function() {testMe();}); </script>
+	<script>$( document ).ready( addCalendarsToNavBar() ); </script>
 </body>
 </html>
