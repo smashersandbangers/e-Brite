@@ -56,6 +56,7 @@
 			</header>
 			<section class="card-block">
 				<script>
+					addCalendarsToNavBar();
 					log( getEvent( getParamValue('id') ) );
 					document.write( "<p>the event id is "+getParamValue('id')+"</p>" );
 					document.write( "<p>the event name is "+getEvent( getParamValue('id') ).title+"</p>" );
@@ -68,11 +69,16 @@
 				<h2>Attendees</h2>
 			</header>
 			<section class="card-block">
-				<p class="card-text">Needs to be implemented.</p>
+				<p class="card-text">Partially working.</p>
 				<script>
 					//suggested method to implement
-					document.write( getEventAttendees( getCurrentCalendar(), getParamValue('id') ));
+					document.write
+					( 
+						getEventAttendees( getCurrentCalendar(), getParamValue('id') )[0].firstName+" "+
+						getEventAttendees( getCurrentCalendar(), getParamValue('id') )[0].lastName
+					);
 				</script>
+				<div id="attendeesList"></div>
 			</section>
 		</section>
 	</section>
@@ -89,6 +95,6 @@
 		</div>
 	</footer>
 
-	<script>$( document ).ready( addCalendarsToNavBar() ); </script>
+	<script>$( document ).ready(  ); </script>
 </body>
 </html>
