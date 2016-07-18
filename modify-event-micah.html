@@ -40,8 +40,10 @@
 			</select>
 		</form>
 	</nav>
-	<header class="jumbotron text-xs-center" id="page-header" style="margin-top:50px;">
-        	<h1 id="mouse">Modify Event</h1>
+	<header class="jumbotron" id="page-header">
+		<div class="container-fluid">
+        	<h1 class="display-3">Modify Event</h1>
+		</div>
 	</header>
 
 	 <div id="eventContent" title="Event Details" style="display:none;">
@@ -49,22 +51,32 @@
         <p><strong><a id="eventLink" target="_blank">Modify Event</a></strong></p>
     </div>
 	
-	<section class="container card" id="">
-		<h2>Event Details</h2>
-		<script>
-			log( getEvent( getParamValue('id') ) );
-			document.write( "<p>the event id is "+getParamValue('id')+"</p>" );
-			document.write( "<p>the event name is "+getEvent( getParamValue('id') ).title+"</p>" );
-		</script>
-	</section>
+	<section class="container">
+		<section class="card" id="">
+			<header class="card-header">
+				<h2>Event Details</h2>
+			</header>
+			<section class="card-block">
+				<script>
+					log( getEvent( getParamValue('id') ) );
+					document.write( "<p>the event id is "+getParamValue('id')+"</p>" );
+					document.write( "<p>the event name is "+getEvent( getParamValue('id') ).title+"</p>" );
+				</script>
+			</section>
+		</section>
 	
-	<section class="container card" id="">
-		<h2>Attendees</h2>
-		<p>Needs to be implemented.</p>
-		<script>
-			//suggested method to implement
-			document.write( "<p>"+getAttendees(42).firstName+" "+getAttendees(42).lastName+"</p>" );
-		</script>
+		<section class="card" id="">
+			<header class="card-header">
+				<h2>Attendees</h2>
+			</header>
+			<section class="card-block">
+				<p class="card-text">Needs to be implemented.</p>
+				<script>
+					//suggested method to implement
+					document.write( "<p>"+getAttendees(42).firstName+" "+getAttendees(42).lastName+"</p>" );
+				</script>
+			</section>
+		</section>
 	</section>
 	
 	<section class="container card" id="">
