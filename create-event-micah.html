@@ -53,10 +53,14 @@
 				<h2>New Event Details</h2>
 			</header>
 			<div class="card-block">
-				<label>Event Name</label>
+				<label>Event Title</label>
 				<input type="text" id="newTitle" name="newTitle" class="form-control" value="Setting Yourself Up for Failure" /> <br />
 				<label>Event Location</label>
 				<input type="text" id="newLocation" name="newLocation" class="form-control" value="Orlando" /> <br />
+				<label>Start Date</label>
+				<input type="text" id="startDate" name="startDate" class="form-control" value="2016-07-29" /> <br />
+				<label>End Date</label>
+				<input type="text" id="endDate" name="endDate" class="form-control" value="2016-07-29" /> <br />
 				<br />
 				<input type="button" name="Save" id="Save" value="Save" class="btn" onclick="addEventToCalendarMicah( getCurrentCalendar() );"/>
 				<input type="reset" name="Reset" id="Reset" value="Reset" class="btn" onclick="reset();"/> <br/>
