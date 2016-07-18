@@ -41,15 +41,48 @@ function getEvent(eventid)
 	return defaultTestEvent;
 }
 
+//UPDATED signature!! returns a single event based on the eventid
+function getEvent(calendarName, eventid)
+{
+	var defaultTestEvent = {
+		'eventid': '01',
+		'title': 'Success Through Failures',
+		'eventLocation': 'Atlanta',
+		'start': moment('2016-07-22'),
+
+		'attendees':[
+			{
+			'firstName': 'John',
+			'lastName': 'Smitty'
+			},
+			{
+			'firstName': 'Sue',
+			'lastName': 'Mee'
+			}
+		]
+	};
+	
+	//parses events to search for matching eventid
+	var events = getCalendarEvents( calendarName );
+	for( var i=0; i<events.length; i++){
+		if( events[i].eventid == eventid)
+			return events[i];
+	}
+
+	return defaultTestEvent;
+}
+
 //stub method for retrieve attendees
-function getEventAttendees(eventid)
+function getEventAttendees(calendarName, eventid)
 {
 	var attendees = {
 			'firstName': 'Test',
 			'lastName': 'User'
 			};
+			
+	var myEvent = getEvent( calendarName, eventid );
 	
-	return attendees;
+	return myEvent.attendees;
 }
 
 //implementing storing the event to the local storage
