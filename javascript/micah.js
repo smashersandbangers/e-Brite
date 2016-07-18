@@ -51,21 +51,27 @@ function getCalendarMicah(calendarName)
 function addEventToCalendarMicah(calendarName)
 {
 	log( jQuery('#newTitle') );
-	var newTitle = '{"title":"'+jQuery('#newTitle')[0].value+'"}';
+	var newTitle = '"title":"'+jQuery('#newTitle')[0].value+'"';
 	log( newTitle );
 	log( calendarName );
 	
 	var myCalendar = getCalendarEvents( calendarName );
+	//need to find the next available eventid, deleted events need to be accounted for
+log("checking myCalendar");
+log(myCalendar);
+	var newEventid = 0;
+	for(var i=0; i<myCalendar.length; i++)
+	{
+		if(newEventid < myCalendar[i].eventid)
+			newEventid = myCalendar[i].eventid;
+	}
+	//we now have the highest known eventid, so increment it by one
+	newEventid++;
+
 	var newIndex = myCalendar.length;
 	
-	myCalendar[newIndex] = JSON.parse( newTitle );
-	log( myCalendar );
+	myCalendar[newIndex] = JSON.parse( '{"eventid":"'+newEventid+'",'+newTitle+'}' );
+	log( myCalendar[newIndex] );
 	
 	saveCalendarEvents( calendarName, myCalendar);
-}
-
-function attachNewEventid()
-{
-	jQuery('#newEventid')[0].value = '42';
-	log( jQuery('#newEventid')[0] );
 }

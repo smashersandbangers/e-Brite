@@ -33,6 +33,7 @@
 			<li class="nav-item"><a class="nav-link" href="#">Create an Event</a></li>
 			<li class="nav-item"><a class="nav-link" href="#">Find Events</a></li>
 			<li class="nav-item"><a class="nav-link" href="credits.html">Credits</a></li>
+			<li class="nav-item"><a class="nav-link" href="api.html">Our API</a></li>
 		</ul>
 		<form class="form-inline pull-xs-right" onchange="changeSelectedCalendar()">
 			<select class="form-control" id="calendarList">
@@ -42,23 +43,27 @@
 	</nav>
 	<div style="clear:both;"></div>
 	
-	<header class="jumbotron text-xs-center" id="page-header" style="margin-top:50px;">
-        	<h1 id="mouse">Create Event</h1>
+	<header class="jumbotron" id="page-header">
+		<div class="container-fluid">
+        	<h1 class="display-3">Create Event</h1>
+		</div>
 	</header>
 
-	<section class="container card" id="">
-		<h2>New Event Details</h2>
-			<label>Event Name</label>
-			<input type="text" id="newTitle" name="newTitle" value="Setting Yourself Up for Failure" /> <br />
-			<label>Event Location</label>
-			<input type="text" id="newLocation" name="newLocation" value="Orlando" /> <br />
-			<br />
-			<input type="button" name="Save" id="Save" value="Save" class="btn" onclick="addEventToCalendarMicah( getCurrentCalendar() );"/>
-			<input type="reset" name="Reset" id="Reset" value="Reset" class="btn" onclick="reset();"/> <br/>
-	</section>
-	
-	<section class="container card" id="">
-		<div id='calendar'></div>
+	<section class="container">
+		<section class="card" id="">
+			<header class="card-header">
+				<h2>New Event Details</h2>
+			</header>
+			<div class="card-block">
+				<label>Event Name</label>
+				<input type="text" id="newTitle" name="newTitle" value="Setting Yourself Up for Failure" /> <br />
+				<label>Event Location</label>
+				<input type="text" id="newLocation" name="newLocation" value="Orlando" /> <br />
+				<br />
+				<input type="button" name="Save" id="Save" value="Save" class="btn" onclick="addEventToCalendarMicah( getCurrentCalendar() );"/>
+				<input type="reset" name="Reset" id="Reset" value="Reset" class="btn" onclick="reset();"/> <br/>
+			</div>
+		</section>
 	</section>
 	
 	<footer class="footer bg-info">
