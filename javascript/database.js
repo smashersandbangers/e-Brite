@@ -69,3 +69,32 @@ function getCalendarEvents(calendarName)
 	console.log( JSON.parse(localStorage.getItem(calendarName)) );
 	return JSON.parse( localStorage.getItem(calendarName));
 }
+
+//adding a new event to the existing event calendar
+function addEventToCalendar(calendarName)
+{
+	log( jQuery('#newTitle') );
+	var newTitle = '"title":"'+jQuery('#newTitle')[0].value+'"';
+	log( newTitle );
+	log( calendarName );
+	
+	var myCalendar = getCalendarEvents( calendarName );
+	//need to find the next available eventid, deleted events need to be accounted for
+log("checking myCalendar");
+log(myCalendar);
+	var newEventid = 0;
+	for(var i=0; i<myCalendar.length; i++)
+	{
+		if(newEventid < myCalendar[i].eventid)
+			newEventid = myCalendar[i].eventid;
+	}
+	//we now have the highest known eventid, so increment it by one
+	newEventid++;
+
+	var newIndex = myCalendar.length;
+	
+	myCalendar[newIndex] = JSON.parse( '{"eventid":"'+newEventid+'",'+newTitle+'}' );
+	log( myCalendar[newIndex] );
+	
+	saveCalendarEvents( calendarName, myCalendar);
+}
