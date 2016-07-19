@@ -70,15 +70,14 @@
 			</header>
 			<section class="card-block">
 				<p class="card-text">Partially working.</p>
+				<div id="attendeesList"></div>
 				<script>
 					//suggested method to implement
 					document.write
 					( 
-						getEventAttendees( getCurrentCalendar(), getParamValue('id') )[0].firstName+" "+
-						getEventAttendees( getCurrentCalendar(), getParamValue('id') )[0].lastName
+						printAttendeesHTML( getCurrentCalendar(), getParamValue('id') )
 					);
 				</script>
-				<div id="attendeesList"></div>
 			</section>
 		</section>
 	</section>

@@ -1,8 +1,6 @@
 //returns all events (for now, i would like to add after-date variable)
 function getEvents()
 {
-	console.log( "getEvents2" );
-	
 	//console.log( events );
 	if(preloadEvents)
 		return preLoadedEvents;
@@ -98,8 +96,8 @@ function getCalendarEvents(calendarName)
 	if( !localStorage.getItem(calendarName) )
 		localStorage.setItem( calendarName, '[]' );
 	
-	console.log( calendarName );
-	console.log( JSON.parse(localStorage.getItem(calendarName)) );
+	//console.log( calendarName );
+	//console.log( JSON.parse(localStorage.getItem(calendarName)) );
 	return JSON.parse( localStorage.getItem(calendarName));
 }
 
@@ -113,8 +111,8 @@ function addEventToCalendar(calendarName)
 	
 	var myCalendar = getCalendarEvents( calendarName );
 	//need to find the next available eventid, deleted events need to be accounted for
-log("checking myCalendar");
-log(myCalendar);
+//log("checking myCalendar");
+//log(myCalendar);
 	var newEventid = 0;
 	for(var i=0; i<myCalendar.length; i++)
 	{
@@ -127,7 +125,7 @@ log(myCalendar);
 	var newIndex = myCalendar.length;
 	
 	myCalendar[newIndex] = JSON.parse( '{"eventid":"'+newEventid+'",'+newTitle+'}' );
-	log( myCalendar[newIndex] );
+	//log( myCalendar[newIndex] );
 	
 	saveCalendarEvents( calendarName, myCalendar);
 }
