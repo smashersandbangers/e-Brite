@@ -22,7 +22,7 @@ function printEvents( events )
 	
 }
 
-//printing the list of attendess, div with id of attendeeList needs to exist on page
+//printing the list of attendess, div with id of attendeeList needs to exist on page, comment
 function printAttendeesHTML(calendarName, eventid)
 {
 	var myDiv = jQuery('#attendeesList')[0];
