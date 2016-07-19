@@ -29,9 +29,10 @@ function findEvent(calendarName,eventid)
 {
 	var myDiv = jQuery('#eventList')[0];
 	console.log( myDiv );
-	var eventsArray = getEvent(calendarName, eventid);
+	var eventsArray = getCalendarEvents(calendarName);
 	var eventsList = '';
 	
+	console.log(eventList);
 	for(var i=0; i<eventsArray.length; i++)
 	{
 		
