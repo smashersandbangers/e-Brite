@@ -73,18 +73,12 @@ function getCurrentCalendar()
 		return "demoEvents";
 }
 
-function changeSelectedCalendar(oldCalendar)
+function changeSelectedCalendar()
 {
 	//localStorage.clear();
 	console.log( "change the current calendar" );
-	log( oldCalendar );
-	//jQuery('#calendar').fullCalendar( 'destroy' );
-	//loadApplication();
 	var events =  getCalendarEvents( getCurrentCalendar() );
 
 	jQuery('#calendar').fullCalendar( 'removeEventSource', jQuery('#calendar').fullCalendar( 'getEventSources' )[0] );
-
-	//jQuery('#calendar').fullCalendar( 'rerenderEvents' );
-	$('#calendar').fullCalendar( 'addEventSource', events);
-	console.log( events );
+	jQuery('#calendar').fullCalendar( 'addEventSource', events);
 }
