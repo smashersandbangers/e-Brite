@@ -6,6 +6,7 @@ var preloadEvents = true;
 //our preloaded events
 var preLoadedEvents = [
 	{
+		'calendarName': 'demoEvents',
 		'eventid': '01',
 		'title': 'Success Through Failures',
 		'eventLocation': 'Atlanta',

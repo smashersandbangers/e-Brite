@@ -50,15 +50,18 @@ function getCalendarMicah(calendarName)
 //adding a new event to the existing event calendar
 function addEventToCalendarMicah(calendarName)
 {
-	log( jQuery('#newTitle') );
+	console.log( "addEventToCalendar" );
+	//log( jQuery('#newTitle') );
 	var newTitle = '"title":"'+jQuery('#newTitle')[0].value+'"';
-	log( newTitle );
+	var eventStart = '"start":"'+jQuery('#startDate')[0].value+'"';
 	log( calendarName );
+	log( newTitle );
+	console.log( eventStart );
 	
 	var myCalendar = getCalendarEvents( calendarName );
 	//need to find the next available eventid, deleted events need to be accounted for
-log("checking myCalendar");
-log(myCalendar);
+//log("checking myCalendar");
+//log(myCalendar);
 	var newEventid = 0;
 	for(var i=0; i<myCalendar.length; i++)
 	{
@@ -70,8 +73,8 @@ log(myCalendar);
 
 	var newIndex = myCalendar.length;
 	
-	myCalendar[newIndex] = JSON.parse( '{"eventid":"'+newEventid+'",'+newTitle+'}' );
-	log( myCalendar[newIndex] );
+	myCalendar[newIndex] = JSON.parse( '{"eventid":"'+newEventid+'",'+newTitle+','+eventStart+'}' );
+	//log( myCalendar[newIndex] );
 	
 	saveCalendarEvents( calendarName, myCalendar);
 }

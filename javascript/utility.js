@@ -11,8 +11,9 @@ function loadApplication()
 	saveCalendarEvents( "events", preLoadedEvents );
 	//new calendar for demo moving forward
 	saveCalendarEvents( "demoEvents", preLoadedEvents );
-	
-	addCalendarsToNavBar();
+console.log(jQuery('#calendarList'))
+	if(jQuery('#calendarList')[0].length === 0)
+		addCalendarsToNavBar();
 	
 	var myFullCalendar = jQuery('#calendar').fullCalendar(
 	{
@@ -28,7 +29,7 @@ function loadApplication()
 		dayClick: function()
 		{
 			log("clicked");
-			switchToDay();
+			//switchToDay();
 		},
 		eventResize: function(event, dayDelta, minuteDelta, revertFunc){
             updateEvent(event);
@@ -62,8 +63,9 @@ function addCalendarsToNavBar()
 //returns the text for the current selected calendar, does a validation check to make sure calednars exist
 function getCurrentCalendar()
 {
+	
 	var calendarList = $('#calendarList');
-	console.log( jQuery('#calendarList option:selected') );
+	//console.log( jQuery('#calendarList option:selected') );
 	
 	if( calendarList.length == 1 )
 		return jQuery('#calendarList option:selected')[0].value;
@@ -71,8 +73,18 @@ function getCurrentCalendar()
 		return "demoEvents";
 }
 
-function changeSelectedCalendar()
+function changeSelectedCalendar(oldCalendar)
 {
-	log( "hello" );
-	log( getCurrentCalendar() );
+	//localStorage.clear();
+	console.log( "change the current calendar" );
+	log( oldCalendar );
+	//jQuery('#calendar').fullCalendar( 'destroy' );
+	//loadApplication();
+	var events =  getCalendarEvents( getCurrentCalendar() );
+
+	jQuery('#calendar').fullCalendar( 'removeEventSource', jQuery('#calendar').fullCalendar( 'getEventSources' )[0] );
+
+	//jQuery('#calendar').fullCalendar( 'rerenderEvents' );
+	$('#calendar').fullCalendar( 'addEventSource', events);
+	console.log( events );
 }
