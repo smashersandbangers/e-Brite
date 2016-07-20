@@ -58,13 +58,13 @@ function printeventHTML(calendarName, eventname,eventid)
 	{
 		
 		var eventObj = eventArray[i];
-		attendeesList += "<ul>eventName "+i;
-		attendeesList += "<ul>";
+		eventsList += "<ul>eventName "+i;
+		eventList += "<ul>";
 		console.log( eventObj );
-		attendeesList += "<li>Name: "+eventObj.eventname+" "+eventObj.eventLocation+" " + eventObj.eventDate;
-		attendeesList += "</ul></ul>";
+		eventList += "<li>Name: "+eventObj.eventname+" "+eventObj.eventLocation+" " + eventObj.eventDate;
+		eventList += "</ul></ul>";
 	}
-	//attendeesList += "</ul>";
+	eventList += "</ul>";
 	console.log( eventList );
 	myDiv.innerHTML = eventList;
 }
