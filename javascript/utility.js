@@ -85,4 +85,6 @@ function changeSelectedCalendar()
 	
 	if(jQuery('#calendarPageTitle')[0])
 		jQuery('#calendarPageTitle')[0].innerHTML = getCurrentCalendar();
+	
+	//console.log( jQuery('#calendarPageTitle') );
 }
