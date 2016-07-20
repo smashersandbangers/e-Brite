@@ -82,4 +82,7 @@ function changeSelectedCalendar()
 
 	jQuery('#calendar').fullCalendar( 'removeEventSource', jQuery('#calendar').fullCalendar( 'getEventSources' )[0] );
 	jQuery('#calendar').fullCalendar( 'addEventSource', events);
+	
+	if(jQuery('#calendarPageTitle')[0])
+		jQuery('#calendarPageTitle')[0].innerHTML = getCurrentCalendar();
 }
