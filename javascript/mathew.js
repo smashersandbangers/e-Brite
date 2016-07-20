@@ -43,7 +43,7 @@ function findEvent(calendarName,eventid)
 		eventsList += "<li>Name: "+eventObj.title+" "+eventObj.location+""+eventObj.start+""+eventObj.end;
 		eventsList += "</ul></ul>";
 	}
-	//attendeesList += "</ul>";
+	eventsList += "</ul>";
 	console.log( eventsList );
 	myDiv.innerHTML = eventsList;
 }
