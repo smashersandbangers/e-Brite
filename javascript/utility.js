@@ -39,7 +39,8 @@ console.log(jQuery('#calendarList'))
 			console.log( jsEvent );
 			jQuery("#eventInfo").html(event.description);
 			jQuery("#eventStartTime").html("<p>"+moment(event.start).format()+"</p>");
-			jQuery("#eventAttendees").html("<p>"+event.attendees[0].firstName+"</p>");
+			if(event.attendees)
+				jQuery("#eventAttendees").html("<p>"+event.attendees[0].firstName+"</p>");
 			jQuery("#eventLink").attr('href', 'modify-event-micah.html?id='+event.eventid);
 			jQuery("#eventContent").dialog({
 				modal: false,
@@ -60,7 +61,7 @@ function addCalendarsToNavBar()
 	jQuery('#calendarList').append( new Option('save events','testSave') );
 }
 
-//returns the text for the current selected calendar, does a validation check to make sure calednars exist
+//returns the text for the current selected calendar, does a validation check to make sure calendars exist
 function getCurrentCalendar()
 {
 	
