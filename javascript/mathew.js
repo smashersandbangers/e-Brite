@@ -47,4 +47,4 @@ function findEvent(calendarName,eventid)
 	console.log( eventsList );
 	myDiv.innerHTML = eventsList;
 }
-Contact GitHub API Training Shop Blog About
+
