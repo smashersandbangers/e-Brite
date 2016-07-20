@@ -44,3 +44,31 @@ function printAttendeesHTML(calendarName, eventid)
 	console.log( attendeesList );
 	myDiv.innerHTML = attendeesList;
 }
+
+// adding in the print event list 
+//printing the list of all Calendar Events, div with id of events needs to exist on page
+function printeventHTML(calendarName, eventname,eventid)
+{
+	var myDiv = jQuery('#eventList')[0];
+	console.log( myDiv );
+	var eventarray = getEventid(calendarName, eventid,eventname);
+	var eventarray = '';
+	
+	for(var i=0; i<eventarray.length; i++)
+	{
+		
+		var eventObj = eventArray[i];
+		attendeesList += "<ul>eventName "+i;
+		attendeesList += "<ul>";
+		console.log( eventObj );
+		attendeesList += "<li>Name: "+eventObj.eventname+" "+eventObj.eventLocation+" " + eventObj.eventDate;
+		attendeesList += "</ul></ul>";
+	}
+	//attendeesList += "</ul>";
+	console.log( eventList );
+	myDiv.innerHTML = eventList;
+}
+
+
+
+
