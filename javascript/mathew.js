@@ -27,20 +27,19 @@ function testMe()
 //finding events from exisitng calendar
 function findEvent(calendarName,eventid)
 {
-	var myDiv = jQuery('#eventList')[0];
-	console.log(myDiv );
-	var eventsArray = getCalendarEvents(calendarName,eventid);
+	console.log(calendarName);
+	var eventsArray = getCalendarEvents(calendarName);
 	var eventsList = '';
 	
-	console.log(eventsList);
+	console.log(eventsArray);
 	for(var i=0; i<eventsArray.length; i++)
 	{
 		
-		var eventsObj = eventsArray[i];
+		var eventObj = eventsArray[i];
 		eventsList += "<ul>Event Name "+i;
 		eventsList += "<ul>";
 		console.log( eventObj);
-		eventsList += "<li> Name: "+ eventObj.title +" "+ eventObj.location+ " "+ eventObj.start + " "+eventObj.end; += "</li>";
+		eventsList += "<li> Name: "+ eventObj.title +" "+ eventObj.location+ " "+ eventObj.start + " "+eventObj.end; + "</li>";
 				eventsList += "</ul></ul>";
 	}
 	console.log(eventsList );
