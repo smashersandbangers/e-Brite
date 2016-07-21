@@ -28,23 +28,23 @@ function testMe()
 function findEvent(calendarName,eventid)
 {
 	var myDiv = jQuery('#eventList')[0];
-	console.log( myDiv );
-	var eventsArray = getCalendarEvents(calendarName);
+	console.log(myDiv );
+	var eventsArray = getCalendarEvents(calendarName,eventid);
 	var eventsList = '';
 	
-	console.log(eventList);
+	console.log(eventsList);
 	for(var i=0; i<eventsArray.length; i++)
 	{
 		
 		var eventsObj = eventsArray[i];
 		eventsList += "<ul>Event Name "+i;
-		eventList += "<ul>";
-		console.log( eventObj );
-		eventsList += "<li>Name: "+eventObj.title+" "+eventObj.location+""+eventObj.start+""+eventObj.end;
-		eventsList += "</ul></ul>";
+		eventsList += "<ul>";
+		console.log( eventObj);
+		eventsList += "<li> Name: "+ eventObj.title +" "+ eventObj.location+ " "+ eventObj.start + " "+eventObj.end; += "</li>";
+				eventsList += "</ul></ul>";
 	}
-	eventsList += "</ul>";
-	console.log( eventsList );
-	myDiv.innerHTML = eventsList;
+	console.log(eventsList );
+	document.getElementById("out").innerHTML = eventsList;
 }
+
 
