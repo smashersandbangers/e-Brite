@@ -88,3 +88,21 @@ function changeSelectedCalendar()
 	
 	//console.log( jQuery('#calendarPageTitle') );
 }
+
+//send the name of the parameter to get it's value
+function getParamValue(paramName)
+{
+	//log( window.location.search );
+	var params={};
+	
+	//this regex was stolen from stack overflow http://stackoverflow.com/questions/19491336/get-url-parameter-jquery-or-how-to-get-query-string-values-in-js
+	window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,
+		function(str,key,value)
+		{
+			params[key] = value;
+		}
+	);
+	//log( params[paramName] );
+	
+	return params[paramName];
+}
