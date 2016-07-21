@@ -58,6 +58,7 @@
 						<script>
 							log( getEvent( getParamValue('id') ) );
 							document.write( "<p>"+getParamValue('calendarName')+" Calendar</p>");
+							
 							document.write( "<p>the event id is "+getParamValue('id')+"</p>" );
 							document.write( "<p>the event name is "+getEvent( getParamValue('calendarName'),getParamValue('id') ).title+"</p>" );
 						</script>
@@ -70,11 +71,15 @@
 					</header>
 					<section class="card-block">
 						<label>Title</label>
-						<input type="text" id="newTitle" name="newTitle" class="form-control" value="Setting Yourself Up for Failure" /> <br />
+						<input type="text" id="newTitle" name="newTitle" class="form-control" value="" /> <br />
 						<label>Start Time</label>
-						<input type="text" id="endDate" name="endDate" class="form-control" value="2016-07-29" /> <br />
+						<input type="text" id="startDate" name="startDate" class="form-control" value="2016-07-29" /> <br />
 						<input type="button" name="Save" id="Save" value="Save" class="btn" onclick="addEventToCalendarMicah( getCurrentCalendar() );"/>
 						<input type="reset" name="Reset" id="Reset" value="Reset" class="btn" onclick="reset();"/>
+						<script>
+							jQuery('#newTitle')[0].value = getEvent( getParamValue('calendarName'),getParamValue('id') ).title;
+							jQuery('#startDate')[0].value = moment(getEvent( getParamValue('calendarName'),getParamValue('id') ).start,'YYYY/MM/DD');
+						</script>
 					</section>
 				</section>
 			</section>
@@ -101,7 +106,7 @@
 						<h2>Add Attendees</h2>
 					</header>
 					<section class="card-block">
-						<p class="card-text">Partially working.</p>
+						<p class="card-text">Enter the details below.</p>
 						<label>First Name</label>
 						<input type="text" id="newTitle" name="newTitle" class="form-control" value="" /> <br />
 						<label>Last Name</label>
