@@ -33,7 +33,6 @@ function printAttendeesHTML(calendarName, eventid)
 	
 	for(var i=0; i<attendeesArray.length; i++)
 	{
-		
 		var attendeeObj = attendeesArray[i];
 		attendeesList += "<ul>Attendee "+i;
 		attendeesList += "<ul>";
@@ -41,8 +40,6 @@ function printAttendeesHTML(calendarName, eventid)
 		attendeesList += "<li>Name: "+attendeeObj.firstName+" "+attendeeObj.lastName;
 		attendeesList += "</ul></ul>";
 	}
-	//attendeesList += "</ul>";
-	//console.log( attendeesList );
 	myDiv.innerHTML = attendeesList;
 }
 

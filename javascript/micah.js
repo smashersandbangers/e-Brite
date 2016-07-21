@@ -58,5 +58,6 @@ function addAttendeeToEventMicah()
 
 function updateEventDetailsMicah()
 {
-	console.log("begin update event details")
+	console.log("begin update event details");
+	jQuery('#currentEventTitle')[0].innerHTML = jQuery('#newTitle')[0].value;
 }

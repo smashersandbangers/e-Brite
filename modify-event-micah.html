@@ -59,8 +59,8 @@
 							log( getEvent( getParamValue('id') ) );
 							document.write( "<p>"+getParamValue('calendarName')+" Calendar</p>");
 							
-							document.write( "<p>the event id is "+getParamValue('id')+"</p>" );
-							document.write( "<p>the event name is "+getEvent( getParamValue('calendarName'),getParamValue('id') ).title+"</p>" );
+							document.write( "<p>the event id is <span id='currentEventid'>"+getParamValue('id')+"</span></p>" );
+							document.write( "<p>the event name is <span id='currentEventTitle'>"+getEvent( getParamValue('calendarName'),getParamValue('id') ).title+"</span></p>" );
 						</script>
 					</section>
 				</section>
