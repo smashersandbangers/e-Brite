@@ -41,7 +41,7 @@ console.log(jQuery('#calendarList'))
 			jQuery("#eventStartTime").html("<p>"+moment(event.start).format()+"</p>");
 			if(event.attendees)
 				jQuery("#eventAttendees").html("<p>"+event.attendees[0].firstName+"</p>");
-			jQuery("#eventLink").attr('href', 'modify-event-micah.html?id='+event.eventid);
+			jQuery("#eventLink").attr('href', 'modify-event-micah.html?id='+event.eventid+'&calendarName='+getCurrentCalendar());
 			jQuery("#eventContent").dialog({
 				modal: false,
 				title: event.title
