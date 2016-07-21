@@ -74,7 +74,7 @@
 						<input type="text" id="newTitle" name="newTitle" class="form-control" value="" /> <br />
 						<label>Start Time</label>
 						<input type="text" id="startDate" name="startDate" class="form-control" value="2016-07-29" /> <br />
-						<input type="button" name="Save" id="Save" value="Save" class="btn" onclick="addEventToCalendarMicah( getCurrentCalendar() );"/>
+						<input type="button" name="Save" id="Save" value="Save" class="btn" onclick="updateEventDetailsMicah();"/>
 						<input type="reset" name="Reset" id="Reset" value="Reset" class="btn" onclick="reset();"/>
 						<script>
 							jQuery('#newTitle')[0].value = getEvent( getParamValue('calendarName'),getParamValue('id') ).title;

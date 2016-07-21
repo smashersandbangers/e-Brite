@@ -55,3 +55,8 @@ function addAttendeeToEventMicah()
 {
 	console.log("begin add attendee")
 }
+
+function updateEventDetailsMicah()
+{
+	console.log("begin update event details")
+}
