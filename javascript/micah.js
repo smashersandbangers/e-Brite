@@ -6,7 +6,7 @@ function testMe()
 }
 
 //no idea what this does yet
-function updateEvent(the_event) {
+function updateEventMicah(the_event) {
     jQuery.update(
       "/events/" + the_event.id,
       { event: { title: the_event.title,
@@ -18,34 +18,6 @@ function updateEvent(the_event) {
       function (reponse) { console.log('successfully updated task.'); }
     );
 };
-
-//send the name of the parameter to get it's value
-function getParamValue(paramName)
-{
-	//log( window.location.search );
-	var params={};
-	
-	//this regex was stolen from stack overflow http://stackoverflow.com/questions/19491336/get-url-parameter-jquery-or-how-to-get-query-string-values-in-js
-	window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,
-		function(str,key,value)
-		{
-			params[key] = value;
-		}
-	);
-	//log( params[paramName] );
-	
-	return params[paramName];
-}
-
-function saveCalendarMicah(calendarName, eventsObject)
-{
-	localStorage.setItem(calendarName, JSON.stringify(eventsObject));
-}
-function getCalendarMicah(calendarName)
-{
-	console.log( JSON.parse(localStorage.getItem(calendarName)) );
-	return JSON.parse( localStorage.getItem(calendarName));
-}
 
 //adding a new event to the existing event calendar
 function addEventToCalendarMicah(calendarName)

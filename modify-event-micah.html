@@ -34,9 +34,6 @@
 			<li class="nav-item"><a class="nav-link" href="credits.html">Credits</a></li>
 			<li class="nav-item"><a class="nav-link" href="api.html">Our API</a></li>
 		</ul>
-		<form class="form-inline pull-xs-right" onchange="changeSelectedCalendar()">
-			<select class="form-control" id="calendarList"></select>
-		</form>
 	</nav>
 	<header class="jumbotron" id="page-header">
 		<div class="container-fluid">
@@ -50,31 +47,69 @@
     </div>
 	
 	<section class="container">
-		<section class="card" id="">
-			<header class="card-header">
-				<h2>Event Details</h2>
-			</header>
-			<section class="card-block">
-				<script>
-					addCalendarsToNavBar();
-					log( getEvent( getParamValue('id') ) );
-					document.write( "<p>the event id is "+getParamValue('id')+"</p>" );
-					document.write( "<p>the event name is "+getEvent( getParamValue('id') ).title+"</p>" );
-				</script>
+		
+		<section class="card-deck-wrapper">
+			<section class="card-deck">
+				<section class="card" id="">
+					<header class="card-header">
+						<h2><span id="calendarPageTitle"></span>Current Details</h2>
+					</header>
+					<section class="card-block">
+						<script>
+							log( getEvent( getParamValue('id') ) );
+							document.write( "<p>"+getParamValue('calendarName')+" Calendar</p>");
+							document.write( "<p>the event id is "+getParamValue('id')+"</p>" );
+							document.write( "<p>the event name is "+getEvent( getParamValue('calendarName'),getParamValue('id') ).title+"</p>" );
+						</script>
+					</section>
+				</section>
+				
+				<section class="card" id="">
+					<header class="card-header">
+						<h2><span id="calendarPageTitle"></span>Change Details</h2>
+					</header>
+					<section class="card-block">
+						<label>Title</label>
+						<input type="text" id="newTitle" name="newTitle" class="form-control" value="Setting Yourself Up for Failure" /> <br />
+						<label>Start Time</label>
+						<input type="text" id="endDate" name="endDate" class="form-control" value="2016-07-29" /> <br />
+						<input type="button" name="Save" id="Save" value="Save" class="btn" onclick="addEventToCalendarMicah( getCurrentCalendar() );"/>
+						<input type="reset" name="Reset" id="Reset" value="Reset" class="btn" onclick="reset();"/>
+					</section>
+				</section>
 			</section>
 		</section>
-	
-		<section class="card" id="">
-			<header class="card-header">
-				<h2>Attendees</h2>
-			</header>
-			<section class="card-block">
-				<p class="card-text">Partially working.</p>
-				<div id="attendeesList"></div>
-				<script>
-					//suggested method to implement
-					printAttendeesHTML( getCurrentCalendar(), getParamValue('id') );
-				</script>
+		
+		<section class="card-deck-wrapper">
+			<section class="card-deck">
+				<section class="card" id="">
+					<header class="card-header">
+						<h2>Current Attendees</h2>
+					</header>
+					<section class="card-block">
+						<p class="card-text">Partially working.</p>
+						<div id="attendeesList"></div>
+						<script>
+							//suggested method to implement
+							printAttendeesHTML( getParamValue('calendarName'), getParamValue('id') );
+						</script>
+					</section>
+				</section>
+				
+				<section class="card" id="">
+					<header class="card-header">
+						<h2>Add Attendees</h2>
+					</header>
+					<section class="card-block">
+						<p class="card-text">Partially working.</p>
+						<label>First Name</label>
+						<input type="text" id="newTitle" name="newTitle" class="form-control" value="Setting Yourself Up for Failure" /> <br />
+						<label>Last Name</label>
+						<input type="text" id="endDate" name="endDate" class="form-control" value="2016-07-29" /> <br />
+						<input type="button" name="Save" id="Save" value="Save" class="btn" onclick="addEventToCalendarMicah( getCurrentCalendar() );"/>
+						<input type="reset" name="Reset" id="Reset" value="Reset" class="btn" onclick="reset();"/>
+					</section>
+				</section>
 			</section>
 		</section>
 	</section>
