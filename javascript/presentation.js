@@ -29,7 +29,7 @@ function printAttendeesHTML(calendarName, eventid)
 	var attendeesArray = [];
 	var attendeesList = '';
 	
-	attendeeList = getEventAttendees(calendarName, eventid);
+	attendeesArray = getEventAttendees(calendarName, eventid);
 	
 	for(var i=0; i<attendeesArray.length; i++)
 	{
