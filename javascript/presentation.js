@@ -26,9 +26,10 @@ function printEvents( events )
 function printAttendeesHTML(calendarName, eventid)
 {
 	var myDiv = jQuery('#attendeesList')[0];
-	console.log( myDiv );
-	var attendeesArray = getEventAttendees(calendarName, eventid);
+	var attendeesArray = [];
 	var attendeesList = '';
+	
+	attendeeList = getEventAttendees(calendarName, eventid);
 	
 	for(var i=0; i<attendeesArray.length; i++)
 	{
@@ -41,7 +42,7 @@ function printAttendeesHTML(calendarName, eventid)
 		attendeesList += "</ul></ul>";
 	}
 	//attendeesList += "</ul>";
-	console.log( attendeesList );
+	//console.log( attendeesList );
 	myDiv.innerHTML = attendeesList;
 }
 

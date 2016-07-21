@@ -50,3 +50,8 @@ function addEventToCalendarMicah(calendarName)
 	
 	saveCalendarEvents( calendarName, myCalendar);
 }
+
+function addAttendeeToEventMicah()
+{
+	console.log("begin add attendee")
+}
