@@ -50,41 +50,61 @@ function addAttendeeToEventMicah(calendarName, eventid)
 	var myEvents = getCalendarEvents(calendarName);
 	var firstName = jQuery('#addFirstName')[0].value;
 	var lastName = jQuery('#addLastName')[0].value;
-	var newAttendee = JSON.parse('{"firstName":"'+firstName+'","lastName":"'+lastName+'"}');
-	var attendeesArray = [];
-	//console.log( myEvents );
-	
-	for(var i=0; i<myEvents.length; i++)
-	{
-		if(myEvents[i].eventid === eventid)
-		{
-			myEvents[i].attendees.push(newAttendee);
-		}
-	}
 
-	saveCalendarEvents(calendarName, myEvents);
+	//console.log( myEvents );
+	if( firstName && lastName)
+	{
+		var newAttendee = JSON.parse('{"firstName":"'+firstName+'","lastName":"'+lastName+'"}');
+		var attendeesArray = [];
+		for(var i=0; i<myEvents.length; i++)
+		{
+			if(myEvents[i].eventid === eventid)
+			{
+				//if attendees does not exist we need to create an array
+				if(!myEvents[i].attendees)
+					myEvents[i].attendees = [];
+				myEvents[i].attendees.push(newAttendee);
+			}
+		}
+	
+		jQuery('#addFirstName')[0].value = '';
+		jQuery('#addLastName')[0].value = '';
+		saveCalendarEvents(calendarName, myEvents);
+		printAttendeesHTML(calendarName, eventid);
+	}
+	else
+	{
+		jQuery('#addAttendeeMessage')[0].innerHTML = '<p><strong>Please enter a first and last name.</strong></p>';
+	}
 }
 
 function updateEventDetailsMicah(calendarName, eventid)
 {
 	console.log("begin update event details");
-	jQuery('#currentEventTitle')[0].innerHTML = jQuery('#newTitle')[0].value;
 	
 	var myEvents = getCalendarEvents(calendarName);
 	var newTitle = jQuery('#newTitle')[0].value;
 	var startDate = jQuery('#startDate')[0].value;
 	//console.log( myEvents );
 	
-	for(var i=0; i<myEvents.length; i++)
+	if(newTitle && startDate)
 	{
-		if(myEvents[i].eventid === eventid)
+		jQuery('#currentEventTitle')[0].innerHTML = jQuery('#newTitle')[0].value;
+		for(var i=0; i<myEvents.length; i++)
 		{
-			myEvents[i].title = newTitle;
-			myEvents[i].start = moment(startDate);
+			if(myEvents[i].eventid === eventid)
+			{
+				myEvents[i].title = newTitle;
+				myEvents[i].start = moment(startDate);
+			}
 		}
-	}
 
-	jQuery('#newTitle')[0].value = '';
-	jQuery('#startDate')[0].value = '';
-	saveCalendarEvents(calendarName, myEvents);
+		jQuery('#newTitle')[0].value = '';
+		jQuery('#startDate')[0].value = '';
+		saveCalendarEvents(calendarName, myEvents);
+	}
+	else
+	{
+		jQuery('#modifyEventMessage')[0].innerHTML = '<p><strong>Please enter a title and start date.</strong></p>';
+	}
 }
