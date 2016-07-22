@@ -46,12 +46,11 @@ function printAttendeesHTML(calendarName, eventid)
 
 // adding in the print event list 
 //printing the list of all Calendar Events, div with id of events needs to exist on page
-function printeventHTML(calendarName, eventname,eventid)
+function printEventsHTML(calendarName)
 {
 	var myDiv = jQuery('#eventList')[0];
 	console.log( myDiv );
 	var eventarray = getEventid(calendarName, eventid,eventname);
-	var eventarray = '';
 	
 	for(var i=0; i<eventarray.length; i++)
 	{
