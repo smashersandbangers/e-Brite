@@ -51,12 +51,12 @@
 	<section class="container">
 		<section class="card" id="">
 			<header class="card-header">
-				<h2>Event Details</h2>
+				<h2>Search for an Event</h2>
 			</header>
 			<div class="card-block">
-				<label>Event Title</label>
-				<input type="text" id="newTitle" name="newTitle" class="form-control" value="Setting Yourself Up for Failure" /> <br/>
-				<input type="button" name="Search" id="Save" value="Search" class="btn" onclick="findEvent(getCurrentCalendar(),02);"/>
+				<label>Search Term</label>
+				<input type="text" id="searchTerm" name="searchTerm" class="form-control" value="" /> <br/>
+				<input type="button" name="Search" id="Save" value="Search" class="btn" onclick=""/>
 				<input type="reset" name="New Search" id="Reset" value="Reset" class="btn" onclick="reset();"/> <br/>
 			</div>
 		</section>
@@ -79,6 +79,6 @@
 		</div>
 	</footer>
 
-	<script>$(document).ready(addCalendarsToNavBar());</script>
+	<script>$(document).ready(addCalendarsToNavBar());findEvent(getCurrentCalendar());</script>
 </body>
 </html>
