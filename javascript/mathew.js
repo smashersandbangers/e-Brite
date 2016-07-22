@@ -1,14 +1,14 @@
 //finding events from exisitng calendar
-function findEvent(calendarName)
+function addFindEventAutoComplete(calendarName)
 {
 	console.log(calendarName);
 	var eventTitlesArray = getCalendarEventTitles(calendarName);
 	
 	console.log(eventTitlesArray);
-	$( "#searchTerm" ).autocomplete(
+	jQuery( "#searchTerm" ).autocomplete(
 	{
-      source: eventTitlesArray
-    });
+		source: eventTitlesArray
+	});
 
 }
 
