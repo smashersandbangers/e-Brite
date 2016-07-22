@@ -36,7 +36,7 @@ function printAttendeesHTML(calendarName, eventid)
 		var attendeeObj = attendeesArray[i];
 		attendeesList += "<ul>Attendee "+i;
 		attendeesList += "<ul>";
-		console.log( attendeeObj );
+		//console.log( attendeeObj );
 		attendeesList += "<li>Name: "+attendeeObj.firstName+" "+attendeeObj.lastName;
 		attendeesList += "</ul></ul>";
 	}

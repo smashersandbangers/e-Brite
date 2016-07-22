@@ -22,8 +22,7 @@ function updateEventMicah(the_event) {
 //adding a new event to the existing event calendar
 function addEventToCalendarMicah(calendarName)
 {
-	console.log( "addEventToCalendar" );
-	//log( jQuery('#newTitle') );
+	console.log( "addEventToCalendar (micah)" );
 	var newTitle = '"title":"'+jQuery('#newTitle')[0].value+'"';
 	var eventStart = '"start":"'+jQuery('#startDate')[0].value+'"';
 	log( calendarName );
@@ -31,9 +30,6 @@ function addEventToCalendarMicah(calendarName)
 	console.log( eventStart );
 	
 	var myCalendar = getCalendarEvents( calendarName );
-	//need to find the next available eventid, deleted events need to be accounted for
-//log("checking myCalendar");
-//log(myCalendar);
 	var newEventid = 0;
 	for(var i=0; i<myCalendar.length; i++)
 	{
@@ -44,20 +40,34 @@ function addEventToCalendarMicah(calendarName)
 	newEventid++;
 
 	var newIndex = myCalendar.length;
-	
 	myCalendar[newIndex] = JSON.parse( '{"eventid":"'+newEventid+'",'+newTitle+','+eventStart+'}' );
-	//log( myCalendar[newIndex] );
-	
 	saveCalendarEvents( calendarName, myCalendar);
 }
 
-function addAttendeeToEventMicah()
+function addAttendeeToEventMicah(calendarName, eventid)
 {
 	console.log("begin add attendee")
+	var myEvents = getCalendarEvents(calendarName);
+	var firstName = jQuery('#addFirstName')[0].value;
+	var lastName = jQuery('#addLastName')[0].value;
+	var newAttendee = JSON.parse('{"firstName":"'+firstName+'","lastName":"'+lastName+'"}');
+	var attendeesArray = [];
+	//console.log( myEvents );
+	
+	for(var i=0; i<myEvents.length; i++)
+	{
+		if(myEvents[i].eventid === eventid)
+		{
+			myEvents[i].attendees.push(newAttendee);
+		}
+	}
+
+	saveCalendarEvents(calendarName, myEvents);
 }
 
-function updateEventDetailsMicah()
+function updateEventDetailsMicah(calendarName, eventObj)
 {
 	console.log("begin update event details");
+	console.log(eventObj);
 	jQuery('#currentEventTitle')[0].innerHTML = jQuery('#newTitle')[0].value;
 }

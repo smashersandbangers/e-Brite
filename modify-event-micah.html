@@ -23,7 +23,7 @@
 	<script src="javascript/application-settings.js"></script>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Page Title</title>
+	<title>Modify Event</title>
 </head>
 <body>
 	<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
@@ -64,7 +64,7 @@
 						</script>
 					</section>
 				</section>
-				
+				<!--#### Change the Event  ####-->
 				<section class="card" id="">
 					<header class="card-header">
 						<h2><span id="calendarPageTitle"></span>Change Details</h2>
@@ -95,12 +95,11 @@
 						<p class="card-text">Partially working.</p>
 						<div id="attendeesList"></div>
 						<script>
-							//suggested method to implement
 							printAttendeesHTML( getParamValue('calendarName'), getParamValue('id') );
 						</script>
 					</section>
 				</section>
-				
+				<!--#### Add Event Attendee  ####-->
 				<section class="card" id="">
 					<header class="card-header">
 						<h2>Add Attendees</h2>
@@ -108,10 +107,10 @@
 					<section class="card-block">
 						<p class="card-text">Enter the details below.</p>
 						<label>First Name</label>
-						<input type="text" id="newTitle" name="newTitle" class="form-control" value="" /> <br />
+						<input type="text" id="addFirstName" name="addFirstName" class="form-control" value="" /> <br />
 						<label>Last Name</label>
-						<input type="text" id="endDate" name="endDate" class="form-control" value="" /> <br />
-						<input type="button" name="Save" id="Save" value="Save" class="btn" onclick="addAttendeeToEventMicah( );"/>
+						<input type="text" id="addLastName" name="addLastName" class="form-control" value="" /> <br />
+						<input type="button" name="Save" id="Save" value="Save" class="btn" onclick="addAttendeeToEventMicah( getParamValue('calendarName'), getParamValue('id') );"/>
 						<input type="reset" name="Reset" id="Reset" value="Reset" class="btn" onclick="reset();"/>
 					</section>
 				</section>
