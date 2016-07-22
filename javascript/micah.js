@@ -65,9 +65,26 @@ function addAttendeeToEventMicah(calendarName, eventid)
 	saveCalendarEvents(calendarName, myEvents);
 }
 
-function updateEventDetailsMicah(calendarName, eventObj)
+function updateEventDetailsMicah(calendarName, eventid)
 {
 	console.log("begin update event details");
-	console.log(eventObj);
 	jQuery('#currentEventTitle')[0].innerHTML = jQuery('#newTitle')[0].value;
+	
+	var myEvents = getCalendarEvents(calendarName);
+	var newTitle = jQuery('#newTitle')[0].value;
+	var startDate = jQuery('#startDate')[0].value;
+	//console.log( myEvents );
+	
+	for(var i=0; i<myEvents.length; i++)
+	{
+		if(myEvents[i].eventid === eventid)
+		{
+			myEvents[i].title = newTitle;
+			myEvents[i].start = moment(startDate);
+		}
+	}
+
+	jQuery('#newTitle')[0].value = '';
+	jQuery('#startDate')[0].value = '';
+	saveCalendarEvents(calendarName, myEvents);
 }
