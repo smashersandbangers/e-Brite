@@ -31,15 +31,16 @@ function printAttendeesHTML(calendarName, eventid)
 	
 	attendeesArray = getEventAttendees(calendarName, eventid);
 	
-	for(var i=0; i<attendeesArray.length; i++)
-	{
-		var attendeeObj = attendeesArray[i];
-		attendeesList += "<ul>Attendee "+i;
-		attendeesList += "<ul>";
-		//console.log( attendeeObj );
-		attendeesList += "<li>Name: "+attendeeObj.firstName+" "+attendeeObj.lastName;
-		attendeesList += "</ul></ul>";
-	}
+	if(attendeesArray)
+		for(var i=0; i<attendeesArray.length; i++)
+		{
+			var attendeeObj = attendeesArray[i];
+			attendeesList += "<ul>Attendee "+i;
+			attendeesList += "<ul>";
+			//console.log( attendeeObj );
+			attendeesList += "<li>Name: "+attendeeObj.firstName+" "+attendeeObj.lastName;
+			attendeesList += "</ul></ul>";
+		}
 	myDiv.innerHTML = attendeesList;
 }
 
