@@ -36,11 +36,11 @@ function loadApplication()
         },
 		eventClick: function (event, jsEvent, view) {
 			//set the values and open the modal
-			console.log( jsEvent );
+			//console.log( jsEvent );
 			jQuery("#eventInfo").html(event.description);
-			jQuery("#eventStartTime").html("<p>"+moment(event.start).format()+"</p>");
+			jQuery("#eventStartTime").html("<p>Date: "+moment(event.start).format()+"</p>");
 			if(event.eventLocation)
-				jQuery("#eventLocation").html("<p>"+event.eventLocation+"</p>");
+				jQuery("#eventLocation").html("<p>Location: "+event.eventLocation+"</p>");
 			jQuery("#eventLink").attr('href', 'modify-event.html?id='+event.eventid+'&calendarName='+getCurrentCalendar());
 			jQuery("#eventContent").dialog({
 				modal: false,
