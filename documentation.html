@@ -65,6 +65,8 @@
 				<ul class="list-group list-group-flush">
 					<li class="list-group-item">addEventToCalendar(calendarName) - SUGGESTED - method to save a new event, event details are grabbed from input elements</li>
 					<li class="list-group-item">getCalendarEvents(calendarName) - returns a JSON string of all events associated with local storage key value calendarName</li>
+					<li class="list-group-item">getCalendarEventTitles(calendarName) - returns a simple array of event titles</li>
+					<li class="list-group-item">getEventAttendees(calendarName, eventid) - returns the attendees array object associated with the event</li>
 					<li class="list-group-item">getEvent(calendarName, eventid) - <i>updated function signature</i> - returns a single event, based on id, from the chosen calendar</li>
 					<li class="list-group-item">getEventAttendees(calendarName, eventid) - returns a JSON string of event attendees</li>
 					<li class="list-group-item">saveCalendarEvents(calendarName, eventsObject) - places the events in local storage using key value calendarName</li>
@@ -98,6 +100,7 @@
 				<h3 class="card-title">Functions</h3>
 				<ul class="list-group list-group-flush">
 					<li class="list-group-item">addCalendarsToNavBar() - adds all existing calendar names in local storage <strong>not fully implemented yet</strong></li>
+					<li class="list-group-item">changeSelectedCalendar - this gets called with the calendar drop down lists changes.  It updates the FullCalendar with the new set of events.</li>
 					<li class="list-group-item">getCurrentCalendar() - returns the currently selected calendarName value from the drop down list</li>
 					<li class="list-group-item">getParamValue(paramName) - returns the matching value for the passed paramName from the URL</li>
 					<li class="list-group-item">loadApplication() - used to load and configure the FullCalendar on the landing page</li>

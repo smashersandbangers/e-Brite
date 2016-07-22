@@ -1,4 +1,6 @@
 //returns all events (for now, i would like to add after-date variable)
+
+//deprecated, don't use
 function getEvents()
 {
 	//console.log( events );
@@ -8,7 +10,7 @@ function getEvents()
 		return NULL;
 }
 
-//returns a single event based on the eventid
+//returns a single event based on the eventid, depracated, don't use
 function getEvent(eventid)
 {
 	var defaultTestEvent = {
