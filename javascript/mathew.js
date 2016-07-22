@@ -21,7 +21,7 @@ console.log(searchTerm);
 	for(var i=0; i<myEvents.length; i++)
 	{
 		if(myEvents[i].title.match(searchTerm))
-			myResults += '<li><a href="single-event-phil.html?calendarName='+calendarName+'&eventid='+myEvents[i].eventid+'>'+myEvents[i].title+'</a></li>';
+			myResults += '<li><a href="single-event-phil.html?calendarName='+calendarName+'&eventid='+myEvents[i].eventid+'">'+myEvents[i].title+'</a></li>';
 	}
 	
 	if( myResults === '')
