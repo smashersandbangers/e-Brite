@@ -59,8 +59,8 @@
 							log( getEvent( getParamValue('id') ) );
 							document.write( "<p>"+getParamValue('calendarName')+" Calendar</p>");
 							
-							document.write( "<p>the event id is <span id='currentEventid'>"+getParamValue('id')+"</span></p>" );
-							document.write( "<p>the event name is <span id='currentEventTitle'>"+getEvent( getParamValue('calendarName'),getParamValue('id') ).title+"</span></p>" );
+							document.write( "<p>Event id is <strong><span id='currentEventid'>"+getParamValue('id')+"</span></strong></p>" );
+							document.write( "<p>Event name: <strong><span id='currentEventTitle'>"+getEvent( getParamValue('calendarName'),getParamValue('id') ).title+"</span></strong></p>" );
 						</script>
 					</section>
 				</section>
@@ -93,7 +93,6 @@
 						<h2>Current Attendees</h2>
 					</header>
 					<section class="card-block">
-						<p class="card-text">Partially working.</p>
 						<div id="attendeesList"></div>
 						<script>
 							printAttendeesHTML( getParamValue('calendarName'), getParamValue('id') );

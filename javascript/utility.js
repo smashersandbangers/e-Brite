@@ -11,7 +11,7 @@ function loadApplication()
 	saveCalendarEvents( "events", preLoadedEvents );
 	//new calendar for demo moving forward
 	saveCalendarEvents( "demoEvents", preLoadedEvents );
-console.log(jQuery('#calendarList'))
+
 	if(jQuery('#calendarList')[0].length === 0)
 		addCalendarsToNavBar();
 	
@@ -39,9 +39,9 @@ console.log(jQuery('#calendarList'))
 			console.log( jsEvent );
 			jQuery("#eventInfo").html(event.description);
 			jQuery("#eventStartTime").html("<p>"+moment(event.start).format()+"</p>");
-			if(event.attendees)
-				jQuery("#eventAttendees").html("<p>"+event.attendees[0].firstName+"</p>");
-			jQuery("#eventLink").attr('href', 'modify-event-micah.html?id='+event.eventid+'&calendarName='+getCurrentCalendar());
+			if(event.eventLocation)
+				jQuery("#eventLocation").html("<p>"+event.eventLocation+"</p>");
+			jQuery("#eventLink").attr('href', 'modify-event.html?id='+event.eventid+'&calendarName='+getCurrentCalendar());
 			jQuery("#eventContent").dialog({
 				modal: false,
 				title: event.title
