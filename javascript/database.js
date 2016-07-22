@@ -106,7 +106,7 @@ function addEventToCalendar(calendarName)
 {
 	console.log( "addEventToCalendar" );
 	var newTitle = '"title":"'+jQuery('#newTitle')[0].value+'"';
-	var eventStart = '"start":"'+moment( jQuery('#startDate')[0].value )+'"';
+	var eventStart = '"start":"'+jQuery('#startDate')[0].value+'"';
 	
 	var myCalendar = getCalendarEvents( calendarName );
 	//need to find the next available eventid, deleted events need to be accounted for
