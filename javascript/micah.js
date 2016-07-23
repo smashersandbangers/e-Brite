@@ -6,7 +6,7 @@ function testMe()
 }
 
 //no idea what this does yet
-function updateEvent(the_event) {
+function updateEventMicah(the_event) {
     jQuery.update(
       "/events/" + the_event.id,
       { event: { title: the_event.title,
@@ -19,52 +19,95 @@ function updateEvent(the_event) {
     );
 };
 
-//send the name of the parameter to get it's value
-function getParamValue(paramName)
-{
-	//log( window.location.search );
-	var params={};
-	
-	//this regex was stolen from stack overflow http://stackoverflow.com/questions/19491336/get-url-parameter-jquery-or-how-to-get-query-string-values-in-js
-	window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,
-		function(str,key,value)
-		{
-			params[key] = value;
-		}
-	);
-	//log( params[paramName] );
-	
-	return params[paramName];
-}
-
-function saveCalendarMicah(calendarName, eventsObject)
-{
-	localStorage.setItem(calendarName, JSON.stringify(eventsObject));
-}
-function getCalendarMicah(calendarName)
-{
-	console.log( JSON.parse(localStorage.getItem(calendarName)) );
-	return JSON.parse( localStorage.getItem(calendarName));
-}
-
 //adding a new event to the existing event calendar
 function addEventToCalendarMicah(calendarName)
 {
-	log( jQuery('#newTitle') );
-	var newTitle = '{"title":"'+jQuery('#newTitle')[0].value+'"}';
-	log( newTitle );
+	console.log( "addEventToCalendar (micah)" );
+	var newTitle = '"title":"'+jQuery('#newTitle')[0].value+'"';
+	var eventStart = '"start":"'+jQuery('#startDate')[0].value+'"';
 	log( calendarName );
+	log( newTitle );
+	console.log( eventStart );
 	
 	var myCalendar = getCalendarEvents( calendarName );
+	var newEventid = 0;
+	for(var i=0; i<myCalendar.length; i++)
+	{
+		if(newEventid < myCalendar[i].eventid)
+			newEventid = myCalendar[i].eventid;
+	}
+	//we now have the highest known eventid, so increment it by one
+	newEventid++;
+
 	var newIndex = myCalendar.length;
-	
-	myCalendar[newIndex] = JSON.parse( newTitle );
-	log( myCalendar );
-	
+	myCalendar[newIndex] = JSON.parse( '{"eventid":"'+newEventid+'",'+newTitle+','+eventStart+'}' );
 	saveCalendarEvents( calendarName, myCalendar);
 }
 
-function attachNewEventid()
+function addAttendeeToEventMicah(calendarName, eventid)
 {
-	jQuery('#newEventid')[0].value = '';
+	console.log("begin add attendee")
+	var myEvents = getCalendarEvents(calendarName);
+	var firstName = jQuery('#addFirstName')[0].value;
+	var lastName = jQuery('#addLastName')[0].value;
+
+	//console.log( myEvents );
+	if( firstName && lastName)
+	{
+		var newAttendee = JSON.parse('{"firstName":"'+firstName+'","lastName":"'+lastName+'"}');
+		var attendeesArray = [];
+		for(var i=0; i<myEvents.length; i++)
+		{
+			if(myEvents[i].eventid === eventid)
+			{
+				//if attendees does not exist we need to create an array
+				if(!myEvents[i].attendees)
+					myEvents[i].attendees = [];
+				myEvents[i].attendees.push(newAttendee);
+			}
+		}
+	
+		jQuery('#addFirstName')[0].value = '';
+		jQuery('#addLastName')[0].value = '';
+		saveCalendarEvents(calendarName, myEvents);
+		printAttendeesHTML(calendarName, eventid);
+	}
+	else
+	{
+		jQuery('#addAttendeeMessage')[0].innerHTML = '<p><strong>Please enter a first and last name.</strong></p>';
+	}
+}
+
+function updateEventDetailsMicah(calendarName, eventid)
+{
+	console.log("begin update event details");
+	
+	var myEvents = getCalendarEvents(calendarName);
+	var newTitle = jQuery('#newTitle')[0].value;
+	var startDate = jQuery('#startDate')[0].value;
+	var eventLocation = jQuery('#eventLocation')[0].value;
+	//console.log( myEvents );
+	
+	if(newTitle && startDate)
+	{
+		jQuery('#currentEventTitle')[0].innerHTML = jQuery('#newTitle')[0].value;
+		for(var i=0; i<myEvents.length; i++)
+		{
+			if(myEvents[i].eventid === eventid)
+			{
+				myEvents[i].title = newTitle;
+				myEvents[i].start = moment(startDate);
+				myEvents[i].eventLocation = eventLocation;
+			}
+		}
+
+		jQuery('#newTitle')[0].value = '';
+		jQuery('#startDate')[0].value = '';
+		jQuery('#eventLocation')[0].value = '';
+		saveCalendarEvents(calendarName, myEvents);
+	}
+	else
+	{
+		jQuery('#modifyEventMessage')[0].innerHTML = '<p><strong>Please enter a title and start date.</strong></p>';
+	}
 }

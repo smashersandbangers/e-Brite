@@ -23,7 +23,7 @@
 	<script src="javascript/application-settings.js"></script>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Page Title</title>
+	<title>Event Calendar</title>
 </head>
 <body>
 	<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
@@ -40,32 +40,39 @@
 	</nav>
 	<header class="jumbotron" id="page-header">
 		<div class="container-fluid">
-        	<h1 class="display-3">Page Heading</h1>
+        	<h1 class="display-3">The Event Calendar</h1>
 		</div>
 	</header>
 
+	 <div id="eventContent" title="Event Details" style="display:none;">
+        <div id="eventInfo"></div>
+		<div id="eventStartTime"></div>
+		<div id="eventLocation"></div>
+        <p><strong><a id="eventLink" target="_blank">Modify Event</a></strong></p>
+    </div>
+	
 	<section class="container">
 		<section class="card" id="">
 			<header class="card-header">
-				<h2>Aliquam erat volutpat</h2>
+				<h2 id="calendarPageTitle">The Demo Calendar</h2>
 			</header>
 			<div class="card-block">
-				<p class="card-text">Nunc eget porta enim. Nullam nec nisi et tortor vulputate laoreet at et lorem. Integer sagittis eget mauris eu eleifend. Ut sodales mi ut sollicitudin tristique. Ut vitae eros euismod neque dignissim suscipit in ac eros. Sed eu tincidunt libero, sit amet luctus magna. Donec vulputate justo et sagittis pretium. Pellentesque finibus ex massa, sit amet consectetur lacus imperdiet nec. Aenean diam massa, accumsan ac ullamcorper eu, tempor ut sapien. Proin pellentesque et ligula vitae posuere. Curabitur sit amet auctor neque, quis aliquet quam. Nulla sagittis risus mauris, quis varius neque posuere id. Duis semper cursus velit non sollicitudin. Nunc at fringilla ex.</p>
+				<p class="card-text"></p>
 			</div>
-		</section>
-		
-		<section class="card" id="">
 			<div class="card-block">
 				<div id='calendar'></div>
 			</div>
 		</section>
 	</section>
+
+	<div id='calendar'></div>
+	
 	<footer class="footer bg-info">
 		<div class="container">
 			<small class="text-primary">&copy; Copyright Smashers and Bangers 2016</small>
 		</div>
 	</footer>
 
-	<script>$(document).ready(loadApplication());</script>
+	<script>$( document ).ready( loadApplication() ); //console.log( getCalendarEvents( getCurrentCalendar() )); </script>
 </body>
 </html>

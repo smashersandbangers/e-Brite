@@ -11,8 +11,9 @@ function loadApplication()
 	saveCalendarEvents( "events", preLoadedEvents );
 	//new calendar for demo moving forward
 	saveCalendarEvents( "demoEvents", preLoadedEvents );
-	
-	addCalendarsToNavBar();
+
+	if(jQuery('#calendarList')[0].length === 0)
+		addCalendarsToNavBar();
 	
 	var myFullCalendar = jQuery('#calendar').fullCalendar(
 	{
@@ -28,18 +29,19 @@ function loadApplication()
 		dayClick: function()
 		{
 			log("clicked");
-			switchToDay();
+			//switchToDay();
 		},
 		eventResize: function(event, dayDelta, minuteDelta, revertFunc){
             updateEvent(event);
         },
 		eventClick: function (event, jsEvent, view) {
 			//set the values and open the modal
-			console.log( jsEvent );
+			//console.log( jsEvent );
 			jQuery("#eventInfo").html(event.description);
-			jQuery("#eventStartTime").html("<p>"+moment(event.start).format()+"</p>");
-			jQuery("#eventAttendees").html("<p>"+event.attendees[0].firstName+"</p>");
-			jQuery("#eventLink").attr('href', 'modify-event-micah.html?id='+event.eventid);
+			jQuery("#eventStartTime").html("<p>Date: "+moment(event.start).format()+"</p>");
+			if(event.eventLocation)
+				jQuery("#eventLocation").html("<p>Location: "+event.eventLocation+"</p>");
+			jQuery("#eventLink").attr('href', 'modify-event.html?id='+event.eventid+'&calendarName='+getCurrentCalendar());
 			jQuery("#eventContent").dialog({
 				modal: false,
 				title: event.title
@@ -59,20 +61,48 @@ function addCalendarsToNavBar()
 	jQuery('#calendarList').append( new Option('save events','testSave') );
 }
 
-//returns the text for the current selected calendar, does a validation check to make sure calednars exist
+//returns the text for the current selected calendar, does a validation check to make sure calendars exist
 function getCurrentCalendar()
 {
+	
 	var calendarList = $('#calendarList');
-	console.log( calendarList );
+	//console.log( jQuery('#calendarList option:selected') );
 	
 	if( calendarList.length == 1 )
-		return jQuery('#calendarList option:selected').text();
+		return jQuery('#calendarList option:selected')[0].value;
 	else
 		return "demoEvents";
 }
 
 function changeSelectedCalendar()
 {
-	log( "hello" );
-	log( getCurrentCalendar() );
+	//localStorage.clear();
+	console.log( "change the current calendar" );
+	var events =  getCalendarEvents( getCurrentCalendar() );
+
+	jQuery('#calendar').fullCalendar( 'removeEventSource', jQuery('#calendar').fullCalendar( 'getEventSources' )[0] );
+	jQuery('#calendar').fullCalendar( 'addEventSource', events);
+	
+	if(jQuery('#calendarPageTitle')[0])
+		jQuery('#calendarPageTitle')[0].innerHTML = getCurrentCalendar();
+	
+	//console.log( jQuery('#calendarPageTitle') );
+}
+
+//send the name of the parameter to get it's value
+function getParamValue(paramName)
+{
+	//log( window.location.search );
+	var params={};
+	
+	//this regex was stolen from stack overflow http://stackoverflow.com/questions/19491336/get-url-parameter-jquery-or-how-to-get-query-string-values-in-js
+	window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,
+		function(str,key,value)
+		{
+			params[key] = value;
+		}
+	);
+	//log( params[paramName] );
+	
+	return params[paramName];
 }

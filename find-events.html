@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +13,6 @@
 	<script src='fullcalendar/lib/jquery-ui.js'></script>
 	<script src='fullcalendar/lib/moment.min.js'></script>
 	<script src='fullcalendar/fullcalendar.js'></script>
-	<script src='qtip/jquery.qtip.js'></script>
 	
 	<script src="javascript/micah.js"></script>
 	<script src="javascript/mathew.js"></script>
@@ -24,54 +24,54 @@
 	<script src="javascript/application-settings.js"></script>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Page Title</title>
+	<title>Find Event</title>
 </head>
 <body>
 	<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
 		<ul class="nav navbar-nav">
-			<li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">Create an Event</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">Find Events</a></li>
+			<li class="nav-item"><a class="nav-link" href="calendar.html">Calendar</a></li>
+			<li class="nav-item"><a class="nav-link" href="create-event.html">Create an Event</a></li>
+			<li class="nav-item"><a class="nav-link" href="find-events.html">Find Events</a></li>
 			<li class="nav-item"><a class="nav-link" href="credits.html">Credits</a></li>
+			<li class="nav-item"><a class="nav-link" href="documentation.html">Documentation</a></li>
 		</ul>
-		<form class="form-inline pull-xs-right">
+		<form class="form-inline pull-xs-right" onchange="changeSelectedCalendar()">
 			<select class="form-control" id="calendarList">
 				
 			</select>
 		</form>
 	</nav>
-	<header class="jumbotron text-xs-center" id="page-header" style="margin-top:50px;">
-        	<h1 id="mouse">Modify Event</h1>
+	
+	<header class="jumbotron" id="page-header">
+		<div class="container-fluid">
+        	<h1 class="display-3">Find an Event</h1>
+		</div>
 	</header>
-
-	 <div id="eventContent" title="Event Details" style="display:none;">
-        <div id="eventInfo"></div>
-        <p><strong><a id="eventLink" target="_blank">Modify Event</a></strong></p>
-    </div>
 	
-	<section class="container card" id="">
-		<h2>Event Details</h2>
-		<script>
-			log( getEvent( getParamValue('id') ) );
-			document.write( "<p>the event id is "+getParamValue('id')+"</p>" );
-			document.write( "<p>the event name is "+getEvent( getParamValue('id') ).title+"</p>" );
-		</script>
+	<section class="container">
+		<section class="card" id="">
+			<header class="card-header">
+				<h2>Search for an Event</h2>
+			</header>
+			<div class="card-block">
+				<label>Search Term</label>
+				<input type="text" id="searchTerm" name="searchTerm" class="form-control" value="" /> <br/>
+				<input type="button" name="Search" id="Save" value="Search" class="btn" onclick="findEvents( getCurrentCalendar() );"/>
+				<input type="reset" name="New Search" id="Reset" value="Reset" class="btn" onclick="reset();"/> <br/>
+			</div>
+		</section>
 	</section>
 	
-	<section class="container card" id="">
-		<h2>Attendees</h2>
-		<p>Needs to be implemented.</p>
-		<script>
-			//suggested method to implement
-			document.write( "<p>"+getAttendees(42).firstName+" "+getAttendees(42).lastName+"</p>" );
-		</script>
+	<section class="container">
+		<section class="card" id="">
+			<header class="card-header">
+				<h2>Results</h2>
+			</header>
+			<div class="card-block">
+				<div id= "eventResults"></div>
+			</div>
+		</section>
 	</section>
-	
-	<section class="container card" id="">
-		<div id='calendar'></div>
-	</section>
-
-	<div id='calendar'></div>
 	
 	<footer class="footer bg-info">
 		<div class="container">
@@ -79,6 +79,6 @@
 		</div>
 	</footer>
 
-	<script>//$( document ).ready(function() {testMe();}); </script>
+	<script>$(document).ready(addCalendarsToNavBar());addFindEventAutoComplete(getCurrentCalendar());</script>
 </body>
 </html>

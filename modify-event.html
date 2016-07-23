@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="favicon.png">
+	<link rel="stylesheet" href="styles/bootstrap-v4.css">
+	<link rel="stylesheet" href="styles/events.css">
+	<link rel="stylesheet" href="styles/jquery-ui.css">
+	<link rel='stylesheet' href='fullcalendar/fullcalendar.css' />
+	
+	<script src='fullcalendar/lib/jquery.min.js'></script>
+	<script src='fullcalendar/lib/jquery-ui.js'></script>
+	<script src='fullcalendar/lib/moment.min.js'></script>
+	<script src='fullcalendar/fullcalendar.js'></script>
+	
+	<script src="javascript/micah.js"></script>
+	<script src="javascript/mathew.js"></script>
+	<script src="javascript/phil.js"></script>
+	<script src="javascript/wale.js"></script>
+	<script src="javascript/utility.js"></script>
+	<script src="javascript/database.js"></script>
+	<script src="javascript/presentation.js"></script>
+	<script src="javascript/application-settings.js"></script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Modify Event</title>
+</head>
+<body>
+	<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+		<ul class="nav navbar-nav">
+			<li class="nav-item"><a class="nav-link" href="calendar.html">Calendar</a></li>
+			<li class="nav-item"><a class="nav-link" href="create-event.html">Create an Event</a></li>
+			<li class="nav-item"><a class="nav-link" href="find-events.html">Find Events</a></li>
+			<li class="nav-item"><a class="nav-link" href="credits.html">Credits</a></li>
+			<li class="nav-item"><a class="nav-link" href="documentation.html">Documentation</a></li>
+		</ul>
+	</nav>
+	<header class="jumbotron" id="page-header">
+		<div class="container-fluid">
+        	<h1 class="display-3">Modify Event</h1>
+		</div>
+	</header>
+
+	 <div id="eventContent" title="Event Details" style="display:none;">
+        <div id="eventInfo"></div>
+        <p><strong><a id="eventLink" target="_blank">Modify Event</a></strong></p>
+    </div>
+	
+	<section class="container">
+		
+		<section class="card-deck-wrapper">
+			<section class="card-deck">
+				<section class="card" id="">
+					<header class="card-header">
+						<h2><span id="calendarPageTitle"></span>Current Details</h2>
+					</header>
+					<section class="card-block">
+						<script>
+							document.write( "<p>"+getParamValue('calendarName')+" Calendar</p>");
+							document.write( "<p><strong>Event id:</strong> <span id='currentEventid'>"+getParamValue('id')+"</span></p>" );
+							document.write( "<p><strong>Event name:</strong> <span id='currentEventTitle'>"+getEvent( getParamValue('calendarName'),getParamValue('id') ).title+"</span></p>" );
+							if( getEvent( getParamValue('calendarName'),getParamValue('id') ).eventLocation )
+								document.write( "<p><strong>Location:</strong> <span id='currentEventTitle'>"+getEvent( getParamValue('calendarName'),getParamValue('id') ).eventLocation+"</span></p>" );
+						</script>
+					</section>
+				</section>
+				<!--#### Change the Event  ####-->
+				<section class="card" id="">
+					<header class="card-header">
+						<h2><span id="calendarPageTitle"></span>Change Details</h2>
+					</header>
+					<section class="card-block">
+						<div id="modifyEventMessage"></div>
+						<label>Title</label>
+						<input type="text" id="newTitle" name="newTitle" class="form-control" value="" /> <br />
+						<label>Start Time</label>
+						<input type="text" id="startDate" name="startDate" class="form-control" value="" /> <br />
+						<label>Location</label>
+						<input type="text" id="eventLocation" name="eventLocation" class="form-control" value="" /> <br />
+						<input type="button" name="Save" id="Save" value="Save" class="btn" onclick="updateEventDetailsMicah(getParamValue('calendarName'), getParamValue('id'));"/>
+						<input type="reset" name="Reset" id="Reset" value="Reset" class="btn" onclick="reset();"/>
+						<script>
+							jQuery('#newTitle')[0].value = getEvent( getParamValue('calendarName'),getParamValue('id') ).title;
+							jQuery('#startDate')[0].value = moment(getEvent( getParamValue('calendarName'),getParamValue('id') ).start,'YYYY/MM/DD');
+							if( getEvent( getParamValue('calendarName'),getParamValue('id') ).eventLocation )
+								jQuery('#eventLocation')[0].value = getEvent( getParamValue('calendarName'),getParamValue('id') ).eventLocation;
+								
+							jQuery('#eventLocation').autocomplete(
+							{
+								source:["Atlanta", "Boston", "Charlotte", "Denver", "Flagstaff", "Georgetown", "Las Vegas", "Minnesota", "New York City", "Orlando", "Quito", "San Francisco", "Tulane" ,"Washington D.C."]
+							});
+							
+						</script>
+					</section>
+				</section>
+			</section>
+		</section>
+		
+		<section class="card-deck-wrapper">
+			<section class="card-deck">
+				<section class="card" id="">
+					<header class="card-header">
+						<h2>Current Attendees</h2>
+					</header>
+					<section class="card-block">
+						<div id="attendeesList"></div>
+						<script>
+							printAttendeesHTML( getParamValue('calendarName'), getParamValue('id') );
+						</script>
+					</section>
+				</section>
+				<!--#### Add Event Attendee  ####-->
+				<section class="card" id="">
+					<header class="card-header">
+						<h2>Add Attendees</h2>
+					</header>
+					<section class="card-block">
+						<p class="card-text">Enter the details below.</p>
+						<div id="addAttendeeMessage"></div>
+						<label>First Name</label>
+						<input type="text" id="addFirstName" name="addFirstName" class="form-control" value="" /> <br />
+						<label>Last Name</label>
+						<input type="text" id="addLastName" name="addLastName" class="form-control" value="" /> <br />
+						<input type="button" name="Save" id="Save" value="Save" class="btn" onclick="addAttendeeToEventMicah( getParamValue('calendarName'), getParamValue('id') );"/>
+						<input type="reset" name="Reset" id="Reset" value="Reset" class="btn" onclick="reset();"/>
+					</section>
+				</section>
+			</section>
+		</section>
+	</section>
+	
+	<footer class="footer bg-info">
+		<div class="container">
+			<small class="text-primary">&copy; Copyright Smashers and Bangers 2016</small>
+		</div>
+	</footer>
+
+	<script>$( document ).ready(  ); </script>
+</body>
+</html>

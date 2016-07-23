@@ -23,24 +23,25 @@
 	<script src="javascript/application-settings.js"></script>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Page Title</title>
+	<title>Event Calendar</title>
 </head>
 <body>
 	<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
 		<ul class="nav navbar-nav">
-			<li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">Create an Event</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">Find Events</a></li>
+			<li class="nav-item"><a class="nav-link" href="calendar.html">Calendar</a></li>
+			<li class="nav-item"><a class="nav-link" href="create-event.html">Create an Event</a></li>
+			<li class="nav-item"><a class="nav-link" href="find-events.html">Find Events</a></li>
 			<li class="nav-item"><a class="nav-link" href="credits.html">Credits</a></li>
+			<li class="nav-item"><a class="nav-link" href="documentation.html">Documentation</a></li>
 		</ul>
-		<form class="form-inline pull-xs-right">
-			<select class="form-control" id="calendarList">
-				
-			</select>
+		<form class="form-inline pull-xs-right" onchange="changeSelectedCalendar()">
+			<select class="form-control" id="calendarList"></select>
 		</form>
 	</nav>
-	<header class="jumbotron text-xs-center" id="page-header" style="margin-top:50px;">
-        	<h1 id="mouse">Page Heading</h1>
+	<header class="jumbotron" id="page-header">
+		<div class="container-fluid">
+        	<h1 class="display-3">Event Calendar</h1>
+		</div>
 	</header>
 
 	 <div id="eventContent" title="Event Details" style="display:none;">
@@ -50,13 +51,18 @@
         <p><strong><a id="eventLink" target="_blank">Modify Event</a></strong></p>
     </div>
 	
-	<section class="container card" id="">
-		<h2>Aliquam erat volutpat</h2>
-		<p>Nunc eget porta enim. Nullam nec nisi et tortor vulputate laoreet at et lorem. Integer sagittis eget mauris eu eleifend. Ut sodales mi ut sollicitudin tristique. Ut vitae eros euismod neque dignissim suscipit in ac eros. Sed eu tincidunt libero, sit amet luctus magna. Donec vulputate justo et sagittis pretium. Pellentesque finibus ex massa, sit amet consectetur lacus imperdiet nec. Aenean diam massa, accumsan ac ullamcorper eu, tempor ut sapien. Proin pellentesque et ligula vitae posuere. Curabitur sit amet auctor neque, quis aliquet quam. Nulla sagittis risus mauris, quis varius neque posuere id. Duis semper cursus velit non sollicitudin. Nunc at fringilla ex.</p>
-	</section>
-	
-	<section class="container card" id="">
-		<div id='calendar'></div>
+	<section class="container">
+		<section class="card" id="">
+			<header class="card-header">
+				<h2 id="calendarPageTitle">The Demo Calendar</h2>
+			</header>
+			<div class="card-block">
+				<p class="card-text"></p>
+			</div>
+			<div class="card-block">
+				<div id='calendar'></div>
+			</div>
+		</section>
 	</section>
 
 	<div id='calendar'></div>
@@ -67,6 +73,6 @@
 		</div>
 	</footer>
 
-	<script>$( document ).ready( loadApplication() ); </script>
+	<script>$( document ).ready( loadApplication() ); //console.log( getCalendarEvents( getCurrentCalendar() )); </script>
 </body>
 </html>
