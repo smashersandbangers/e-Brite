@@ -1,0 +1,122 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FullCalendar Events</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>FullCalendar Events</h1>
+                <p>Get Events</p>
+                <br />
+                <div id="calendar"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="fullCalModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
+                    <h4 id="modalTitle" class="modal-title"></h4>
+                </div>
+                <div id="modalBody" class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <a class="btn btn-primary" id="eventUrl" target="_blank">Event Page</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var date = new Date();
+			var d = date.getDate();
+			var m = date.getMonth();
+			var y = date.getFullYear()
+
+            var calendar = $('#calendar').fullCalendar({
+                editable: true,
+				weekMode: 'liquid',
+				url: '#',
+                header:
+				{
+					left: 'prev,next today',
+					center: 'title',
+					right: 'month,agendaWeek,agendaDay'
+				},
+selectable: true,
+				selectHelper: true,
+                select: function(start, end, allDay)
+				{
+
+					var title = prompt('Event Title:');
+
+					if (title)
+					{
+						calendar.fullCalendar('renderEvent',
+							{
+								title: title,
+								start: start,
+								end: end,
+								allDay: false
+							},
+							true // make the event "stick"
+						);
+					}
+					calendar.fullCalendar('unselect');
+
+				},
+                eventClick:  function(event, jsEvent, view) {
+                    $('#modalTitle').html(event.title);
+                    $('#modalBody').html(event.description);
+                    $('#eventUrl').attr('href',event.url);
+                    $('#fullCalModal').modal();
+                    return false;
+                },
+                events:
+                [
+                   {
+                      "title":"Your Success Story",
+                      "allday":"false",
+                      "description":"<p>Learn the secrets to success from inspirational leaders</p>",
+                      "start":moment().subtract('days',14),
+                      "end":moment().subtract('days',14),
+                      "url":"http://www.ecosysit.com"
+                   },
+                   {
+                      "title":"Equal Work, Equal Pay",
+                      "allday":"false",
+                      "description":"<p>Join the fight for equal pay!</p><p>You earned it!</p>",
+                      "start":moment().subtract('days',2),
+                      "end":moment().subtract('days',2),
+                      "url":"https://nwlc.org/issue/equal-pay-and-the-wage-gap/"
+                   },
+                   {
+                      "title":"ATL Job Fair",
+                      "allday":"false",
+                      "description":"<p>You are just one step away from your next job!!.</p>",
+                      "start":moment().subtract('days',6),
+                      "end":moment().subtract('days',6),
+                      "url":"http://www.monster.com"
+                   }
+
+                ]
+            });
+        });
+    </script>
+</body>
+</html>
+
+
