@@ -84,6 +84,12 @@
 							jQuery('#startDate')[0].value = moment(getEvent( getParamValue('calendarName'),getParamValue('id') ).start,'YYYY/MM/DD');
 							if( getEvent( getParamValue('calendarName'),getParamValue('id') ).eventLocation )
 								jQuery('#eventLocation')[0].value = getEvent( getParamValue('calendarName'),getParamValue('id') ).eventLocation;
+								
+							jQuery('#eventLocation').autocomplete(
+							{
+								source:["Atlanta", "Boston", "Charlotte", "Denver", "Flagstaff", "Georgetown", "Las Vegas", "Minnesota", "New York City", "Orlando", "Quito", "San Francisco", "Tulane" ,"Washington D.C."]
+							});
+							
 						</script>
 					</section>
 				</section>

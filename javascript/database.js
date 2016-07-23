@@ -136,7 +136,6 @@ function getCalendarEventTitles(calendarName)
 	
 	if( !localStorage.getItem(calendarName) )
 		localStorage.setItem( calendarName, '[]' );
-console.log(myEvents);
 	for(var i=0; i<myEvents.length; i++)
 	{
 		myTitles.push(myEvents[i].title);
