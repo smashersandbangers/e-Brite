@@ -35,7 +35,7 @@ function printAttendeesHTML(calendarName, eventid)
 		for(var i=0; i<attendeesArray.length; i++)
 		{
 			var attendeeObj = attendeesArray[i];
-			attendeesList += "<ul>Attendee "+i;
+			attendeesList += "<ul>Attendee "+(i+1);
 			attendeesList += "<ul>";
 			//console.log( attendeeObj );
 			attendeesList += "<li>Name: "+attendeeObj.firstName+" "+attendeeObj.lastName;
@@ -53,8 +53,7 @@ function printEventsHTML(calendarName)
 	var eventarray = getEventid(calendarName, eventid,eventname);
 	
 	for(var i=0; i<eventarray.length; i++)
-	{
-		
+	{	
 		var eventObj = eventArray[i];
 		eventsList += "<ul>eventName "+i;
 		eventList += "<ul>";

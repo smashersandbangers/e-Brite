@@ -85,6 +85,7 @@ function updateEventDetailsMicah(calendarName, eventid)
 	var myEvents = getCalendarEvents(calendarName);
 	var newTitle = jQuery('#newTitle')[0].value;
 	var startDate = jQuery('#startDate')[0].value;
+	var eventLocation = jQuery('#eventLocation')[0].value;
 	//console.log( myEvents );
 	
 	if(newTitle && startDate)
@@ -96,11 +97,13 @@ function updateEventDetailsMicah(calendarName, eventid)
 			{
 				myEvents[i].title = newTitle;
 				myEvents[i].start = moment(startDate);
+				myEvents[i].eventLocation = eventLocation;
 			}
 		}
 
 		jQuery('#newTitle')[0].value = '';
 		jQuery('#startDate')[0].value = '';
+		jQuery('#eventLocation')[0].value = '';
 		saveCalendarEvents(calendarName, myEvents);
 	}
 	else
