@@ -11,6 +11,8 @@ var preLoadedEvents = [
 		'title': 'Success Through Failures',
 		'eventLocation': 'Atlanta',
 		'start': moment('2016-07-22'),
+		'eventSeats': '12',
+		'eventCurrentAttendees': '6',
 
 		'attendees':[
 			{
