@@ -43,7 +43,6 @@ function loadApplication()
 				},
 				true // make the event "stick"
 				);
-				
 				//saveCalendarEvents(getCurrentCalendar(), JSON.parse(myCalendar.fullCalendar('clientEvents')));
 				saveFullCalendarEvents(getCurrentCalendar(),myCalendar.fullCalendar('clientEvents'));
 				
