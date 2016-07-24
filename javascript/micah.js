@@ -25,7 +25,7 @@ function addEventToCalendarMicah(calendarName)
 
 function addAttendeeToEventMicah(calendarName, eventid)
 {
-	console.log("begin add attendee")
+	console.log("begin add attendee (micah)")
 	var myEvents = getCalendarEvents(calendarName);
 	var firstName = jQuery('#addFirstName')[0].value;
 	var lastName = jQuery('#addLastName')[0].value;

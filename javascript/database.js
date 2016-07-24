@@ -74,12 +74,7 @@ function getEvent(calendarName, eventid)
 
 //stub method for retrieve attendees
 function getEventAttendees(calendarName, eventid)
-{
-	var attendees = {
-			'firstName': 'Test',
-			'lastName': 'User'
-			};
-			
+{	
 	var myEvent = getEvent( calendarName, eventid );
 	
 	return myEvent.attendees;

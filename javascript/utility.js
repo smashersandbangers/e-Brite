@@ -40,9 +40,10 @@ function loadApplication()
 					start: start,
 					end: end,
 					allDay: false,
-					newEvent: true
+					newEvent: true,
+					attendees: []
 				},
-				true // make the event "stick"
+				false // make the event "stick"
 				);
 				//saveCalendarEvents(getCurrentCalendar(), JSON.parse(myCalendar.fullCalendar('clientEvents')));
 				saveFullCalendarEvents(getCurrentCalendar(), myCalendar.fullCalendar('clientEvents'));
