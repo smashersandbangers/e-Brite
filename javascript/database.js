@@ -143,3 +143,44 @@ function getCalendarEventTitles(calendarName)
 	
 	return myTitles;
 }
+
+//this has a horrible performance value
+function saveFullCalendarEvents(calendarName, fullCalendarEvents)
+{
+	console.log('save full calendar');
+	var myEvents = getCalendarEvents(calendarName);
+	var newEventsLog = [];
+
+console.log(JSON.stringify(myEvents[0]));
+	for(var i=0; i<fullCalendarEvents.length; i++)
+	{
+		if(fullCalendarEvents[i].newEvent)
+		{
+			var myEvent = '{'
+						+'"eventid":'+getNewEventid(calendarName)+','
+						+'"title":"'+fullCalendarEvents[i].title+'",'
+						+'"start":"'+moment(fullCalendarEvents[i].start).format()+'"'
+			+'}';
+			console.log(myEvent);
+			myEvents[myEvents.length] = JSON.parse(myEvent);
+			saveCalendarEvents(calendarName, myEvents);
+			fullCalendarEvents[i].newEvent=false;
+		}
+		
+	}
+	
+}
+
+function getNewEventid(calendarName)
+{
+	var myCalendar = getCalendarEvents( calendarName );
+	//need to find the next available eventid, deleted events need to be accounted for
+	var newEventid = 0;
+	for(var i=0; i<myCalendar.length; i++)
+	{
+		if(newEventid < myCalendar[i].eventid)
+			newEventid = myCalendar[i].eventid;
+	}
+	//we now have the highest known eventid, so increment it by one
+	return ++newEventid;
+}

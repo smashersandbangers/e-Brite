@@ -7,7 +7,7 @@ var preloadEvents = true;
 var preLoadedEvents = [
 	{
 		'calendarName': 'demoEvents',
-		'eventid': '01',
+		'eventid': 1,
 		'title': 'Success Through Failures',
 		'eventLocation': 'Atlanta',
 		'start': moment('2016-07-22'),
@@ -24,7 +24,7 @@ var preLoadedEvents = [
 		]
 	},
 	{
-		"eventid": "02",
+		"eventid": 2,
 		'title': 'Successfully Failing',
 		'eventLocation': 'Boston',
 		'start': moment('2016-07-15'),
@@ -42,7 +42,7 @@ var preLoadedEvents = [
 		]
 	},
 	{
-		"eventid": "03",
+		"eventid": 3,
 		'title': 'To Fail or Not to Fail',
 		'eventLocation': 'Boston',
 		'start': moment('2016-07-27'),

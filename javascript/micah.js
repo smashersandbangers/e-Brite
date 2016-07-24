@@ -57,7 +57,7 @@ function addAttendeeToEventMicah(calendarName, eventid)
 	}
 }
 
-//update function to take an event object...
+//update function to take an event object... 
 function updateEventDetailsMicah(calendarName, eventid)
 {
 	console.log("begin update event details");

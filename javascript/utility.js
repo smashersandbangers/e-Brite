@@ -39,12 +39,13 @@ function loadApplication()
 					title: title,
 					start: start,
 					end: end,
-					allDay: false
+					allDay: false,
+					newEvent: true
 				},
 				true // make the event "stick"
 				);
 				//saveCalendarEvents(getCurrentCalendar(), JSON.parse(myCalendar.fullCalendar('clientEvents')));
-				saveFullCalendarEvents(getCurrentCalendar(),myCalendar.fullCalendar('clientEvents'));
+				saveFullCalendarEvents(getCurrentCalendar(), myCalendar.fullCalendar('clientEvents'));
 				
 			}
 			myCalendar.fullCalendar('unselect');
