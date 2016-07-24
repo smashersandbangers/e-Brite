@@ -20,6 +20,7 @@ function getData(myCalendarName, eventid){
 				
 				
 				
+				
 						/*var myAttendees = getEvent( getParamValue('calendarName'),getParamValue('eventid') ).attendees;
 				
 							for(i = 0; i < myAttendees.length; i++){
