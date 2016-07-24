@@ -15,40 +15,56 @@ function loadApplication()
 	if(jQuery('#calendarList')[0].length === 0)
 		addCalendarsToNavBar();
 	
-	var myFullCalendar = jQuery('#calendar').fullCalendar(
+	var myCalendar = $('#calendar').fullCalendar(
 	{
-        header:
+		editable: true,
+		weekMode: 'liquid',
+		url: '#',
+		header:
 		{
-			left: 'month,agendaWeek,agendaDay'
+			left: 'prev,next today',
+			center: 'title',
+			right: 'month,agendaWeek,agendaDay'
 		},
-		height: 500,
-		editable: false,
-		durationEditable: true,
-		weekends: false,
-		events: getCalendarEvents( getCurrentCalendar() ),
-		dayClick: function()
+		selectable: true,
+		selectHelper: true,
+		select: function(start, end, allDay)
 		{
-			log("clicked");
-			//switchToDay();
+			var title = prompt('Event Title:');
+
+			if (title)
+			{
+				myCalendar.fullCalendar('renderEvent',
+				{
+					title: title,
+					start: start,
+					end: end,
+					allDay: false
+				},
+				true // make the event "stick"
+				);
+				
+				//saveCalendarEvents(getCurrentCalendar(), JSON.parse(myCalendar.fullCalendar('clientEvents')));
+				saveFullCalendarEvents(getCurrentCalendar(),myCalendar.fullCalendar('clientEvents'));
+				
+			}
+			myCalendar.fullCalendar('unselect');
+			
 		},
-		eventResize: function(event, dayDelta, minuteDelta, revertFunc){
-            updateEvent(event);
-        },
-		eventClick: function (event, jsEvent, view) {
-			//set the values and open the modal
-			//console.log( jsEvent );
+		eventClick: function(event, jsEvent, view)
+		{
 			jQuery("#eventInfo").html(event.description);
 			jQuery("#eventStartTime").html("<p>Date: "+moment(event.start).format()+"</p>");
 			if(event.eventLocation)
 				jQuery("#eventLocation").html("<p>Location: "+event.eventLocation+"</p>");
 			jQuery("#eventLink").attr('href', 'modify-event.html?id='+event.eventid+'&calendarName='+getCurrentCalendar());
-			jQuery("#eventContent").dialog({
-				modal: false,
-				title: event.title
-			});
+			jQuery("#eventContent").dialog({modal: false,title: event.title});
 			return false;
-		}
-    });
+		},
+		events: getCalendarEvents( getCurrentCalendar() ),
+	});
+
+
 }
 
 //grabs the id selector for calendarList and appends the list of calendars

@@ -1,24 +1,3 @@
-//let's get this started
-function testMe()
-{
-
-	
-}
-
-//no idea what this does yet
-function updateEventMicah(the_event) {
-    jQuery.update(
-      "/events/" + the_event.id,
-      { event: { title: the_event.title,
-                 starts_at: "" + the_event.start,
-                 ends_at: "" + the_event.end,
-                 description: the_event.description
-               }
-      },
-      function (reponse) { console.log('successfully updated task.'); }
-    );
-};
-
 //adding a new event to the existing event calendar
 function addEventToCalendarMicah(calendarName)
 {
@@ -78,6 +57,7 @@ function addAttendeeToEventMicah(calendarName, eventid)
 	}
 }
 
+//update function to take an event object...
 function updateEventDetailsMicah(calendarName, eventid)
 {
 	console.log("begin update event details");
