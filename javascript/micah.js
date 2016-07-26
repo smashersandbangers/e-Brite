@@ -77,7 +77,7 @@ function updateEventDetailsMicah(calendarName, eventid)
 		jQuery('#currentEventTitle')[0].innerHTML = jQuery('#newTitle')[0].value;
 		for(var i=0; i<myEvents.length; i++)
 		{
-			if(myEvents[i].eventid === eventid)
+			if(myEvents[i].eventid === parseInt(eventid))
 			{
 				myEvents[i].title = newTitle;
 				myEvents[i].start = moment(startDate);
