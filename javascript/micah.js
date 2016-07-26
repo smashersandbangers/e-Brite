@@ -35,10 +35,14 @@ function addAttendeeToEventMicah(calendarName, eventid)
 	{
 		var newAttendee = JSON.parse('{"firstName":"'+firstName+'","lastName":"'+lastName+'"}');
 		var attendeesArray = [];
+		
+		//loop through events to find the correct eventid
 		for(var i=0; i<myEvents.length; i++)
 		{
-			if(myEvents[i].eventid === eventid)
+			console.log('myevents: '+myEvents[i].eventid+', looking for: '+eventid);
+			if(myEvents[i].eventid === parseInt(eventid))
 			{
+				console.log("match found");
 				//if attendees does not exist we need to create an array
 				if(!myEvents[i].attendees)
 					myEvents[i].attendees = [];
