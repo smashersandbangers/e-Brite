@@ -28,7 +28,7 @@
 <body>
 	<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
 		<ul class="nav navbar-nav">
-			<li class="nav-item"><a class="nav-link" href="calendar.html">Calendar</a></li>
+			<li class="nav-item"><a class="nav-link" href="./">Calendar</a></li>
 			<li class="nav-item"><a class="nav-link" href="create-event.html">Create an Event</a></li>
 			<li class="nav-item"><a class="nav-link" href="find-events.html">Find Events</a></li>
 			<li class="nav-item"><a class="nav-link" href="credits.html">Credits</a></li>
@@ -40,15 +40,18 @@
 	</nav>
 	<header class="jumbotron" id="page-header">
 		<div class="container-fluid">
-        	<h1 class="display-3">Event Calendar</h1>
+        	<h1 class="display-3">The Event Calendar</h1>
 		</div>
 	</header>
 
 	 <div id="eventContent" title="Event Details" style="display:none;">
         <div id="eventInfo"></div>
 		<div id="eventStartTime"></div>
-		<div id="eventAttendees"></div>
-        <p><strong><a id="eventLink" target="_blank">Modify Event</a></strong></p>
+		<div id="eventLocation"></div>
+        <p>
+			<a id="modifyEvent" target="_blank" class="btn btn-info">Modify Event</a>
+			<a id="eventLink" target="_blank" class="btn btn-success">See Details</a>
+		</p>
     </div>
 	
 	<section class="container">
