@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="styles/events.css">
 	<link rel="stylesheet" href="styles/jquery-ui.css">
 	<link rel='stylesheet' href='fullcalendar/fullcalendar.css' />
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 	
 	<script src='fullcalendar/lib/jquery.min.js'></script>
 	<script src='fullcalendar/lib/jquery-ui.js'></script>
@@ -52,7 +53,7 @@
 			<section class="card-deck">
 				<section class="card" id="">
 					<header class="card-header">
-						<h2><span id="calendarPageTitle"></span>Current Details</h2>
+						<h2><i class="fa fa-list" aria-hidden="true"></i> <span id="calendarPageTitle"></span>Current Details</h2>
 					</header>
 					<section class="card-block">
 						<div id="eventDetails"></div>
@@ -64,7 +65,7 @@
 				<!--#### Change the Event  ####-->
 				<section class="card" id="">
 					<header class="card-header">
-						<h2><span id="calendarPageTitle"></span>Change Details</h2>
+						<h2><i class="fa fa-pencil" aria-hidden="true"></i> <span id="calendarPageTitle"></span>Change Details</h2>
 					</header>
 					<section class="card-block">
 						<div id="modifyEventMessage"></div>
@@ -97,7 +98,7 @@
 			<section class="card-deck">
 				<section class="card" id="">
 					<header class="card-header">
-						<h2>Current Attendees</h2>
+						<h2><i class="fa fa-users" aria-hidden="true"></i> Current Attendees</h2>
 					</header>
 					<section class="card-block">
 						<div id="attendeesList"></div>
@@ -109,7 +110,7 @@
 				<!--#### Add Event Attendee  ####-->
 				<section class="card" id="">
 					<header class="card-header">
-						<h2>Add Attendees</h2>
+						<h2><i class="fa fa-plus" aria-hidden="true"></i> Add Attendees</h2>
 					</header>
 					<section class="card-block">
 						<p class="card-text">Enter the details below.</p>

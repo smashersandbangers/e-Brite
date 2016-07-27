@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="styles/events.css">
 	<link rel="stylesheet" href="styles/jquery-ui.css">
 	<link rel='stylesheet' href='fullcalendar/fullcalendar.css' />
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 	
 	<script src='fullcalendar/lib/jquery.min.js'></script>
 	<script src='fullcalendar/lib/jquery-ui.js'></script>
@@ -40,11 +41,12 @@
 	</nav>
 	<header class="jumbotron" id="page-header">
 		<div class="container-fluid">
-        	<h1 class="display-3">The Event Calendar</h1>
+        	<h1 class="display-3"><i class="fa fa-calendar" aria-hidden="true"></i> The Event Calendar</h1>
 		</div>
 	</header>
 
 	 <div id="eventContent" title="Event Details" style="display:none;">
+		<div id="eventIcon"></div>
         <div id="eventInfo"></div>
 		<div id="eventStartTime"></div>
 		<div id="eventLocation"></div>

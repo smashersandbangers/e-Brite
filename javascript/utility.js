@@ -54,6 +54,7 @@ function loadApplication()
 		},
 		eventClick: function(event, jsEvent, view)
 		{
+			jQuery("#eventIcon").html('<p><i class="fa fa-calendar-o" aria-hidden="true"></i></p>');
 			jQuery("#eventInfo").html(event.description);
 			jQuery("#eventStartTime").html("<p>Date: "+moment(event.start).format()+"</p>");
 			if(event.eventLocation)
