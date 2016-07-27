@@ -77,7 +77,7 @@
 						<input type="text" id="startDate" name="startDate" class="form-control" value="" /> <br />
 						<label>Location</label>
 						<input type="text" id="eventLocation" name="eventLocation" class="form-control" value="" /> <br />
-						<input type="button" name="Save" id="Save" value="Save" class="btn btn-success" onclick="updateEventDetailsMicah(getParamValue('calendarName'), getParamValue('id'));"/>
+						<input type="button" name="Save" id="Save" value="Save" class="btn btn-success" onclick="updateEventDetails(getParamValue('calendarName'), getParamValue('id'));"/>
 						<input type="reset" name="Reset" id="Reset" value="Reset" class="btn btn-danger" onclick="reset();"/>
 						<script>
 							jQuery('#newTitle')[0].value = getEvent( getParamValue('calendarName'),getParamValue('id') ).title;

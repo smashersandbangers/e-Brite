@@ -46,9 +46,9 @@ function getEvent(calendarName, eventid)
 {
 	var defaultTestEvent = {
 		'eventid': '01',
-		'title': 'Success Through Failures',
-		'eventLocation': 'Atlanta',
-		'start': moment('2016-07-22'),
+		'title': 'No Event Found',
+		'eventLocation': 'No Location Found',
+		'start': moment('2016-07-22').format(),
 
 		'attendees':[
 			{
@@ -178,4 +178,78 @@ function getNewEventid(calendarName)
 	}
 	//we now have the highest known eventid, so increment it by one
 	return ++newEventid;
+}
+
+
+//update function to take an event object... 
+function updateEventDetails(calendarName, eventid)
+{
+	console.log("begin update event details");
+	
+	var myEvents = getCalendarEvents(calendarName);
+	var newTitle = jQuery('#newTitle')[0].value;
+	var startDate = jQuery('#startDate')[0].value;
+	var eventLocation = jQuery('#eventLocation')[0].value;
+	//console.log( myEvents );
+	
+	if(newTitle && startDate)
+	{
+		jQuery('#currentEventTitle')[0].innerHTML = jQuery('#newTitle')[0].value;
+		for(var i=0; i<myEvents.length; i++)
+		{
+			if(myEvents[i].eventid === parseInt(eventid))
+			{
+				myEvents[i].title = newTitle;
+				myEvents[i].start = moment(startDate);
+				myEvents[i].eventLocation = eventLocation;
+			}
+		}
+
+		jQuery('#newTitle')[0].value = '';
+		jQuery('#startDate')[0].value = '';
+		jQuery('#eventLocation')[0].value = '';
+		saveCalendarEvents(calendarName, myEvents);
+	}
+	else
+	{
+		jQuery('#modifyEventMessage')[0].innerHTML = '<p><strong>Please enter a title and start date.</strong></p>';
+	}
+}
+
+function addAttendeeToEvent(calendarName, eventid)
+{
+	console.log("begin add attendee (micah)")
+	var myEvents = getCalendarEvents(calendarName);
+	var firstName = jQuery('#addFirstName')[0].value;
+	var lastName = jQuery('#addLastName')[0].value;
+
+	//console.log( myEvents );
+	if( firstName && lastName)
+	{
+		var newAttendee = JSON.parse('{"firstName":"'+firstName+'","lastName":"'+lastName+'"}');
+		var attendeesArray = [];
+		
+		//loop through events to find the correct eventid
+		for(var i=0; i<myEvents.length; i++)
+		{
+			console.log('myevents: '+myEvents[i].eventid+', looking for: '+eventid);
+			if(myEvents[i].eventid === parseInt(eventid))
+			{
+				console.log("match found");
+				//if attendees does not exist we need to create an array
+				if(!myEvents[i].attendees)
+					myEvents[i].attendees = [];
+				myEvents[i].attendees.push(newAttendee);
+			}
+		}
+	
+		jQuery('#addFirstName')[0].value = '';
+		jQuery('#addLastName')[0].value = '';
+		saveCalendarEvents(calendarName, myEvents);
+		printAttendeesHTML(calendarName, eventid);
+	}
+	else
+	{
+		jQuery('#addAttendeeMessage')[0].innerHTML = '<p><strong>Please enter a first and last name.</strong></p>';
+	}
 }
