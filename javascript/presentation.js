@@ -85,6 +85,24 @@ function printEventDetailsHTML(calendarName, eventid)
 	}
 }
 
+function printEventResults(calendarName)
+{
+	var searchTerm = jQuery('#searchTerm')[0].value;
+	var myEvents = getCalendarEvents(calendarName);
+	var myResults = '';
+
+	for(var i=0; i<myEvents.length; i++)
+	{
+		if(myEvents[i].title.match(searchTerm))
+			myResults += '<li><a href="single-event.html?calendarName='+calendarName+'&eventid='+myEvents[i].eventid+'">'+myEvents[i].title+'</a></li>';
+	}
+	
+	if( myResults === '')
+		myResults = '<li>No events found</li>';
+	
+	jQuery('#eventResults')[0].innerHTML = '<ul>'+myResults+'</ul>';
+}
+
 //phil's function
 function printSingleEventData(myCalendarName, eventid)
 {

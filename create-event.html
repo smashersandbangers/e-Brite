@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="styles/events.css">
 	<link rel="stylesheet" href="styles/jquery-ui.css">
 	<link rel='stylesheet' href='fullcalendar/fullcalendar.css' />
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 	
 	<script src='fullcalendar/lib/jquery.min.js'></script>
 	<script src='fullcalendar/lib/jquery-ui.js'></script>
@@ -43,14 +44,14 @@
 	
 	<header class="jumbotron" id="page-header">
 		<div class="container-fluid">
-        	<h1 class="display-3">Create Event</h1>
+        	<h1 class="display-3"><i class="fa fa-floppy-o" aria-hidden="true"></i> Create an Event</h1>
 		</div>
 	</header>
 	
 	<section class="container">
 		<section class="card" id="">
 			<header class="card-header">
-				<h2>New Event Details</h2>
+				<h2><i class="fa fa-list-alt" aria-hidden="true"></i> New Event Details</h2>
 			</header>
 			<div class="card-block">
 				<label>Event Title</label>
@@ -62,8 +63,8 @@
 				<label>End Date</label>
 				<input type="text" id="endDate" name="endDate" class="form-control" value="2016-07-29" /> <br />
 				<br />
-				<input type="button" name="Save" id="Save" value="Save" class="btn" onclick="addEventToCalendar( getCurrentCalendar() );"/>
-				<input type="reset" name="Reset" id="Reset" value="Reset" class="btn" onclick="reset();"/> <br/>
+				<input type="button" name="Save" id="Save" value="Save" class="btn btn-success" onclick="addEventToCalendar( getCurrentCalendar() );"/>
+				<input type="reset" name="Reset" id="Reset" value="Reset" class="btn btn-danger" onclick="reset();"/> <br/>
 			</div>
 		</section>
 	</section>
