@@ -55,12 +55,9 @@
 						<h2><span id="calendarPageTitle"></span>Current Details</h2>
 					</header>
 					<section class="card-block">
+						<div id="eventDetails"></div>
 						<script>
-							document.write( "<p>"+getParamValue('calendarName')+" Calendar</p>");
-							document.write( "<p><strong>Event id:</strong> <span id='currentEventid'>"+getParamValue('id')+"</span></p>" );
-							document.write( "<p><strong>Event name:</strong> <span id='currentEventTitle'>"+getEvent( getParamValue('calendarName'),getParamValue('id') ).title+"</span></p>" );
-							if( getEvent( getParamValue('calendarName'),getParamValue('id') ).eventLocation )
-								document.write( "<p><strong>Location:</strong> <span id='currentEventTitle'>"+getEvent( getParamValue('calendarName'),getParamValue('id') ).eventLocation+"</span></p>" );
+							printEventDetailsHTML(getParamValue('calendarName'),getParamValue('id'));
 						</script>
 					</section>
 				</section>
@@ -121,7 +118,7 @@
 						<input type="text" id="addFirstName" name="addFirstName" class="form-control" value="" /> <br />
 						<label>Last Name</label>
 						<input type="text" id="addLastName" name="addLastName" class="form-control" value="" /> <br />
-						<input type="button" name="Save" id="Save" value="Save" class="btn btn-success" onclick="addAttendeeToEventMicah( getParamValue('calendarName'), getParamValue('id') );"/>
+						<input type="button" name="Save" id="Save" value="Save" class="btn btn-success" onclick="addAttendeeToEvent( getParamValue('calendarName'), getParamValue('id') );"/>
 						<input type="reset" name="Reset" id="Reset" value="Reset" class="btn btn-danger" onclick="reset();"/>
 					</section>
 				</section>

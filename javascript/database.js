@@ -209,6 +209,7 @@ function updateEventDetails(calendarName, eventid)
 		jQuery('#startDate')[0].value = '';
 		jQuery('#eventLocation')[0].value = '';
 		saveCalendarEvents(calendarName, myEvents);
+		printEventDetailsHTML(calendarName, eventid);
 	}
 	else
 	{

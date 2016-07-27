@@ -66,6 +66,18 @@ function printEventsHTML(calendarName)
 	myDiv.innerHTML = eventList;
 }
 
+function printEventDetailsHTML(calendarName, eventid)
+{
+	var myDiv = jQuery('#eventDetails');
+	var myEvent = getEvent(calendarName, eventid);
+	
+	myDiv.append("<p>"+calendarName+" Calendar</p>");
+	myDiv.append("<p><strong>Event id:</strong> <span id='currentEventid'>"+eventid+"</span></p>");
+	myDiv.append("<p><strong>Event name:</strong> <span id='currentEventTitle'>"+myEvent.title+"</span></p>");
+	if( myEvent.eventLocation )
+		myDiv.append("<p><strong>Location:</strong> <span id='currentEventTitle'>"+myEvent.eventLocation+"</span></p>");
+}
+
 //phil's function
 function printSingleEventData(myCalendarName, eventid)
 {
