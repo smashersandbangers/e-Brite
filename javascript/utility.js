@@ -58,8 +58,8 @@ function loadApplication()
 			jQuery("#eventStartTime").html("<p>Date: "+moment(event.start).format()+"</p>");
 			if(event.eventLocation)
 				jQuery("#eventLocation").html("<p>Location: "+event.eventLocation+"</p>");
-			jQuery("#modifyEvent").attr('href', 'modify-event.html?id='+event.eventid+'&calendarName='+getCurrentCalendar());
-			jQuery("#eventLink").attr('href', 'single-event.html?id='+event.eventid+'&calendarName='+getCurrentCalendar());
+			jQuery("#modifyEvent").attr('href', 'modify-event.html?eventid='+event.eventid+'&calendarName='+getCurrentCalendar());
+			jQuery("#eventLink").attr('href', 'single-event.html?eventid='+event.eventid+'&calendarName='+getCurrentCalendar());
 			jQuery("#eventContent").dialog({modal: false,title: event.title});
 			return false;
 		},

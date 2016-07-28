@@ -52,12 +52,8 @@ function getEvent(calendarName, eventid)
 
 		'attendees':[
 			{
-			'firstName': 'John',
-			'lastName': 'Smitty'
-			},
-			{
-			'firstName': 'Sue',
-			'lastName': 'Mee'
+			'firstName': 'Attendees',
+			'lastName': 'Not Found'
 			}
 		]
 	};
@@ -195,6 +191,7 @@ function updateEventDetails(calendarName, eventid)
 	if(newTitle && startDate)
 	{
 		jQuery('#currentEventTitle')[0].innerHTML = jQuery('#newTitle')[0].value;
+		jQuery('#eventDetails').append("<p><strong>Location:</strong> <span id='currentEventTitle'>"+eventLocation+"</span></p>");
 		for(var i=0; i<myEvents.length; i++)
 		{
 			if(myEvents[i].eventid === parseInt(eventid))
@@ -209,7 +206,7 @@ function updateEventDetails(calendarName, eventid)
 		jQuery('#startDate')[0].value = '';
 		jQuery('#eventLocation')[0].value = '';
 		saveCalendarEvents(calendarName, myEvents);
-		printEventDetailsHTML(calendarName, eventid);
+		//printEventDetailsHTML(calendarName, eventid);
 	}
 	else
 	{

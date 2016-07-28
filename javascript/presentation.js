@@ -73,11 +73,14 @@ function printEventDetailsHTML(calendarName, eventid)
 	
 	if(jQuery('#calendarName')[0])
 	{
-		jQuery('#currentEventTitle')[0].innerHTML( jQuery('#newTitle')[0].value);
+		console.log("print event 1");
+		jQuery('#currentEventTitle')[0].innerHTML( jQuery('#newTitle')[0].value );
+		myDiv.append("<p><strong>Location:</strong> <span id='currentEventTitle'>"+myEvent.eventLocation+"</span></p>");
 	}
 	else
 	{
-		myDiv.append("<p id='calendarName'>"+calendarName+" Calendar</p>");
+		console.log("print event 2");
+		myDiv.append("<p id='calendarName'>"+calendarName.replace(/_/g, ' ')+"</p>");
 		myDiv.append("<p><strong>Event id:</strong> <span id='currentEventid'>"+eventid+"</span></p>");
 		myDiv.append("<p><strong>Event name:</strong> <span id='currentEventTitle'>"+myEvent.title+"</span></p>");
 		if( myEvent.eventLocation )
@@ -106,16 +109,14 @@ function printEventResults(calendarName)
 //phil's function
 function printSingleEventData(myCalendarName, eventid)
 {
-	document.write( "<p>"+myCalendarName+ " Calendar</p>");
+	document.write( "<p>"+myCalendarName.replace(/_/g, ' ')+"</p>");
 	document.write( "<p><strong>Event id:</strong> <span id='currentEventid'>"+eventid+"</span></p>" );
-
-	if( getEvent( myCalendarName, eventid ).eventLocation )
-	{
-		document.write( "<p><strong>Location:</strong> <span id='currentEventTitle'>"+getEvent(myCalendarName,eventid) .eventLocation+"</span></p>" );
-		document.write( "<p><strong>Start:</strong> <span id='currentEventTitle'>"+getEvent(myCalendarName,eventid).start+"</span></p>" );
-		document.write( "<p><strong>Seats:</strong> <span id='currentEventTitle'>"+getEvent(myCalendarName,eventid).eventSeats+"</span></p>" );
-		document.write( "<p><strong>Attendee Count:</strong> <span id='eventCurrentAttendees'>"+getEvent( myCalendarName,eventid).eventCurrentAttendees+"</span></p>" );
-	}	
+	document.write( "<p><strong>Location:</strong> <span id='currentEventTitle'>"+getEvent(myCalendarName,eventid) .eventLocation+"</span></p>" );
+	document.write( "<p><strong>Start:</strong> <span id='currentEventTitle'>"+getEvent(myCalendarName,eventid).start+"</span></p>" );
+	document.write( "<p><strong>Seats:</strong> <span id='currentEventTitle'>"+getEvent(myCalendarName,eventid).eventSeats+"</span></p>" );
+	document.write( "<p><strong>Attendee Count:</strong> <span id='eventCurrentAttendees'>"+getEvent( myCalendarName,eventid).eventCurrentAttendees+"</span></p>" );
+	document.write( "<button type='button' class='btn btn-warning' onclick=\"location.href = 'modify-event.html?calendarName="+myCalendarName+"&eventid="+eventid+"'\">Modify Event</button>" );
+	
 }
 
 

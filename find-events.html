@@ -58,7 +58,7 @@
 				<label>Search Term</label>
 				<input type="text" id="searchTerm" name="searchTerm" class="form-control" value="" /> <br/>
 				<input type="button" name="Search" id="Save" value="Search" class="btn btn-info" onclick="printEventResults( getCurrentCalendar() );"/>
-				<input type="reset" name="New Search" id="Reset" value="Reset" class="btn btn-danger" onclick="reset();"/> <br/>
+				<input type="reset" name="New Search" id="Reset" value="Reset" class="btn btn-danger" onclick="jQuery('#searchTerm')[0].value='';"/> <br/>
 			</div>
 		</section>
 	</section>

@@ -59,7 +59,7 @@
 					<section class="card-block">
 						<div id="eventDetails"></div>
 						<script>
-							printEventDetailsHTML(getParamValue('calendarName'),getParamValue('id'));
+							printEventDetailsHTML(getParamValue('calendarName'),getParamValue('eventid'));
 						</script>
 					</section>
 				</section>
@@ -76,13 +76,13 @@
 						<input type="text" id="startDate" name="startDate" class="form-control" value="" /> <br />
 						<label>Location</label>
 						<input type="text" id="eventLocation" name="eventLocation" class="form-control" value="" /> <br />
-						<input type="button" name="Save" id="Save" value="Save" class="btn btn-success" onclick="updateEventDetails(getParamValue('calendarName'), getParamValue('id'));"/>
-						<input type="reset" name="Reset" id="Reset" value="Reset" class="btn btn-danger" onclick="reset();"/>
+						<input type="button" name="Save" id="Save" value="Save" class="btn btn-success" onclick="updateEventDetails(getParamValue('calendarName'), getParamValue('eventid'));"/>
+						<input type="reset" name="Reset" id="Reset" value="Reset" class="btn btn-danger" onclick="jQuery('#newTitle')[0].value='';jQuery('#eventLocation')[0].value='';"/>
 						<script>
-							jQuery('#newTitle')[0].value = getEvent( getParamValue('calendarName'),getParamValue('id') ).title;
-							jQuery('#startDate')[0].value = moment(getEvent( getParamValue('calendarName'),getParamValue('id') ).start,'YYYY/MM/DD');
-							if( getEvent( getParamValue('calendarName'),getParamValue('id') ).eventLocation )
-								jQuery('#eventLocation')[0].value = getEvent( getParamValue('calendarName'),getParamValue('id') ).eventLocation;
+							jQuery('#newTitle')[0].value = getEvent( getParamValue('calendarName'),getParamValue('eventid') ).title;
+							jQuery('#startDate')[0].value = moment(getEvent( getParamValue('calendarName'),getParamValue('eventid') ).start,'YYYY/MM/DD');
+							if( getEvent( getParamValue('calendarName'),getParamValue('eventid') ).eventLocation )
+								jQuery('#eventLocation')[0].value = getEvent( getParamValue('calendarName'),getParamValue('eventid') ).eventLocation;
 								
 							jQuery('#eventLocation').autocomplete(
 							{
@@ -104,7 +104,7 @@
 					<section class="card-block">
 						<div id="attendeesList"></div>
 						<script>
-							printAttendeesHTML( getParamValue('calendarName'), getParamValue('id') );
+							printAttendeesHTML( getParamValue('calendarName'), getParamValue('eventid') );
 						</script>
 					</section>
 				</section>
@@ -120,7 +120,7 @@
 						<input type="text" id="addFirstName" name="addFirstName" class="form-control" value="" /> <br />
 						<label>Last Name</label>
 						<input type="text" id="addLastName" name="addLastName" class="form-control" value="" /> <br />
-						<input type="button" name="Save" id="Save" value="Save" class="btn btn-success" onclick="addAttendeeToEvent( getParamValue('calendarName'), getParamValue('id') );"/>
+						<input type="button" name="Save" id="Save" value="Save" class="btn btn-success" onclick="addAttendeeToEvent( getParamValue('calendarName'), getParamValue('eventid') );"/>
 						<input type="reset" name="Reset" id="Reset" value="Reset" class="btn btn-danger" onclick="reset();"/>
 					</section>
 				</section>
