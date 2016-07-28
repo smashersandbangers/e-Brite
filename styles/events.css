@@ -6,3 +6,6 @@ header.card-header.index-page{
 .glow{
 	text-shadow: 1px -4px 5px yellow;
 }
+#mobileHack{
+	margin:60px;
+}
