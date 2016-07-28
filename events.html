@@ -2,10 +2,12 @@
 <head>
 <meta charset="utf-8" />
 	<link rel="icon" href="favicon.png">
+	<link rel='stylesheet' href='calendar.css' />
 	<link rel="stylesheet" href="styles/bootstrap-v4.css">
 	<link rel="stylesheet" href="styles/events.css">
 	<link rel="stylesheet" href="styles/jquery-ui.css">
 	<link rel='stylesheet' href='fullcalendar/fullcalendar.css' />
+
 
 	<script src='fullcalendar/lib/jquery.min.js'></script>
 	<script src='fullcalendar/lib/jquery-ui.js'></script>
@@ -51,7 +53,7 @@
 				<select class="form-control" id="calendarList"></select>
 			</form>
 		</nav>
-		<header class="jumbotron" id="page-header">
+		<header style="background:#C8D69E" class="jumbotron" id="page-header">
 			<div class="container-fluid">
 	        	<h1 class="display-3">Event Calendar</h1>
 			</div>
@@ -66,7 +68,7 @@
 
 		<section class="container">
 			<section class="card" id="">
-				<header class="card-header">
+				<header style="background:#C8D69E" class="card-header">
 					<h2 id="calendarPageTitle">The Demo Calendar</h2>
 				</header>
 				<div class="card-block">
@@ -77,8 +79,6 @@
 				</div>
 			</section>
 		</section>
-
-	<div id='calendar'></div>
 
     <div id="fullCalModal" class="modal fade">
         <div class="modal-dialog">
