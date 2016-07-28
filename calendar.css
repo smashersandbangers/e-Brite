@@ -2,8 +2,8 @@ body {
 	background-color:lightblue;
 	}
 
-.jumbotron{
-background: red;
+header.jumbotron{
+background-color: #CCF0D6;
 }
 
 
@@ -11,6 +11,6 @@ background: red;
     background-color: #CCF0D6;
 }
 
-.card-header {
+header.card-header {
     background-color: #BDD684;
 }
