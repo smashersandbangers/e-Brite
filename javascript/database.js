@@ -100,6 +100,7 @@ function addEventToCalendar(calendarName)
 	console.log( "addEventToCalendar" );
 	var newTitle = '"title":"'+jQuery('#newTitle')[0].value+'"';
 	var eventStart = '"start":"'+jQuery('#startDate')[0].value+'"';
+	var eventLocation = '"eventLocation":"'+jQuery('#newLocation')[0].value+'"';
 	
 	var myCalendar = getCalendarEvents( calendarName );
 	//need to find the next available eventid, deleted events need to be accounted for
@@ -114,7 +115,7 @@ function addEventToCalendar(calendarName)
 
 	var newIndex = myCalendar.length;
 	
-	myCalendar[newIndex] = JSON.parse( '{"eventid":"'+newEventid+'",'+newTitle+','+eventStart+'}' );
+	myCalendar[newIndex] = JSON.parse( '{"eventid":"'+newEventid+'",'+newTitle+','+eventStart+','+eventLocation+'}' );
 	//log( myCalendar[newIndex] );
 	
 	saveCalendarEvents( calendarName, myCalendar);
