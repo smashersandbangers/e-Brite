@@ -7,10 +7,8 @@ function log( logItem ){
 //add the calendar names to the drop down list
 function loadApplication()
 {
-	//legacy calendar
-	saveCalendarEvents( "events", preLoadedEvents );
 	//new calendar for demo moving forward
-	saveCalendarEvents( "demoEvents", preLoadedEvents );
+	saveCalendarEvents( "Demo_Calendar", preLoadedEvents );
 
 	if(jQuery('#calendarList')[0].length === 0)
 		addCalendarsToNavBar();
@@ -39,6 +37,7 @@ function loadApplication()
 					title: title,
 					start: start,
 					end: end,
+					eventid: getNewEventid(getCurrentCalendar()),
 					allDay: false,
 					newEvent: true,
 					attendees: []
@@ -47,7 +46,7 @@ function loadApplication()
 				);
 				//saveCalendarEvents(getCurrentCalendar(), JSON.parse(myCalendar.fullCalendar('clientEvents')));
 				saveFullCalendarEvents(getCurrentCalendar(), myCalendar.fullCalendar('clientEvents'));
-				
+				console.log
 			}
 			myCalendar.fullCalendar('unselect');
 			
@@ -76,8 +75,9 @@ function addCalendarsToNavBar()
 	log("cal nav bar");
 	log( jQuery('#calendarList') );
 	
-	jQuery('#calendarList').append( new Option('demo events','demoEvents') );
-	jQuery('#calendarList').append( new Option('save events','testSave') );
+	jQuery('#calendarList').append( new Option('My Calendar','My_Calendar') );
+	jQuery('#calendarList').append( new Option('Demo Calendar','Demo_Calendar') );
+	
 }
 
 //returns the text for the current selected calendar, does a validation check to make sure calendars exist
@@ -102,8 +102,9 @@ function changeSelectedCalendar()
 	jQuery('#calendar').fullCalendar( 'removeEventSource', jQuery('#calendar').fullCalendar( 'getEventSources' )[0] );
 	jQuery('#calendar').fullCalendar( 'addEventSource', events);
 	
+	var calendarNameHTML = '<i class="fa fa-calendar-check-o" aria-hidden="true"></i> '+getCurrentCalendar();
 	if(jQuery('#calendarPageTitle')[0])
-		jQuery('#calendarPageTitle')[0].innerHTML = getCurrentCalendar();
+		jQuery('#calendarPageTitle')[0].innerHTML = calendarNameHTML.replace(/_/g, ' ');
 	
 	//console.log( jQuery('#calendarPageTitle') );
 }
