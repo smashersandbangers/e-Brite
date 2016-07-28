@@ -109,14 +109,15 @@ function printEventResults(calendarName)
 //phil's function
 function printSingleEventData(myCalendarName, eventid)
 {
-	document.write( "<p>"+myCalendarName.replace(/_/g, ' ')+"</p>");
+	document.write( "<h3>"+myCalendarName.replace(/_/g, ' ')+"</h3>");
+	document.write( "<section id='eventBlock'>" );
 	document.write( "<p><strong>Event id:</strong> <span id='currentEventid'>"+eventid+"</span></p>" );
-	document.write( "<p><strong>Location:</strong> <span id='currentEventTitle'>"+getEvent(myCalendarName,eventid) .eventLocation+"</span></p>" );
+	document.write( "<p><strong>Location:</strong> <span id='currentEventTitle'>"+getEvent(myCalendarName,eventid).eventLocation+"</span></p>" );
 	document.write( "<p><strong>Start:</strong> <span id='currentEventTitle'>"+getEvent(myCalendarName,eventid).start+"</span></p>" );
 	document.write( "<p><strong>Seats:</strong> <span id='currentEventTitle'>"+getEvent(myCalendarName,eventid).eventSeats+"</span></p>" );
-	document.write( "<p><strong>Attendee Count:</strong> <span id='eventCurrentAttendees'>"+getEvent( myCalendarName,eventid).eventCurrentAttendees+"</span></p>" );
+	document.write( "<p><strong>Attendee Count:</strong> <span id='eventCurrentAttendees'>"+getEvent(myCalendarName,eventid).eventCurrentAttendees+"</span></p>" );
 	document.write( "<button type='button' class='btn btn-warning' onclick=\"location.href = 'modify-event.html?calendarName="+myCalendarName+"&eventid="+eventid+"'\">Modify Event</button>" );
-	
+	document.write( "</section>" );
 }
 
 

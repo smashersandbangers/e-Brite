@@ -166,5 +166,31 @@ var preLoadedEvents = [
 			'lastName': 'Rivers'
 			}
 		]
+	},
+	{
+		"eventid": 11,
+		'title': 'MIST7571 Presentation',
+		'eventLocation': 'San Diego',
+		'start': moment('2016-07-28T20:00:00Z'),
+		'eventSeats': '10',
+		'eventCurrentAttendees': '10',
+		'attendees':[
+			{
+			'firstName': 'Mathew',
+			'lastName': 'Alexander'
+			},
+			{
+			'firstName': 'Wale',
+			'lastName': 'Akintan'
+			},
+			{
+			'firstName': 'Micah',
+			'lastName': 'Cooper'
+			},
+			{
+			'firstName': 'Phillip',
+			'lastName': 'Manville'
+			}
+		]
 	}
 ];
