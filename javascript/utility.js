@@ -15,7 +15,7 @@ function loadApplication()
 	
 	var myCalendar = $('#calendar').fullCalendar(
 	{
-		editable: true,
+		editable: false,
 		weekMode: 'liquid',
 		url: '#',
 		header:
