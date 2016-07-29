@@ -192,7 +192,16 @@ function updateEventDetails(calendarName, eventid)
 	if(newTitle && startDate)
 	{
 		jQuery('#currentEventTitle')[0].innerHTML = jQuery('#newTitle')[0].value;
-		jQuery('#eventDetails').append("<p><strong>Location:</strong> <span id='currentEventTitle'>"+eventLocation+"</span></p>");
+		if(jQuery('#currentEventLocation')[0])
+		{
+			console.log('found currentEventLocation');
+			jQuery('#currentEventLocation')[0].innerHTML = eventLocation;
+		}
+		else
+		{
+			console.log('did not find current event location');
+			jQuery('#eventDetails').append("<p><strong>Location:</strong> <span id='currentEventTitle'>"+eventLocation+"</span></p>");
+		}
 		for(var i=0; i<myEvents.length; i++)
 		{
 			if(myEvents[i].eventid === parseInt(eventid))

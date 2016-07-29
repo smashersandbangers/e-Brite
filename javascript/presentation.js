@@ -84,7 +84,7 @@ function printEventDetailsHTML(calendarName, eventid)
 		myDiv.append("<p><strong>Event id:</strong> <span id='currentEventid'>"+eventid+"</span></p>");
 		myDiv.append("<p><strong>Event name:</strong> <span id='currentEventTitle'>"+myEvent.title+"</span></p>");
 		if( myEvent.eventLocation )
-			myDiv.append("<p><strong>Location:</strong> <span id='currentEventTitle'>"+myEvent.eventLocation+"</span></p>");
+			myDiv.append("<p><strong>Location:</strong> <span id='currentEventLocation'>"+myEvent.eventLocation+"</span></p>");
 	}
 }
 
