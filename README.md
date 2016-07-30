@@ -11,3 +11,6 @@ This project was intended to solve the problem of organizaing events from the vi
 
 ###Details of project implementation
 The event manager functionality relies on the integration of jQuery and LocalStorage.  We have expanded the application's features by connecting our landing page with and configuring the FullCalendar library.  We have designed event objects (JSON strings) that include the following fields: eventid, title, start, end, eventLocation, eventSeats, eventCurrentAttendees and the attendess object {firstname, lastname}.
+
+###Application overview
+![Project Demo](http://i.imgur.com/piuTLiO.png)
