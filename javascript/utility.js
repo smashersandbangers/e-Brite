@@ -13,6 +13,7 @@ function loadApplication()
 	if(jQuery('#calendarList')[0].length === 0)
 		addCalendarsToNavBar();
 	
+	//attaching the FullCalendar object to the page with our custom configurations
 	var myCalendar = $('#calendar').fullCalendar(
 	{
 		editable: false,
@@ -93,6 +94,7 @@ function getCurrentCalendar()
 		return "demoEvents";
 }
 
+//this gets called with the calendar drop down lists changes. It updates the FullCalendar with the new set of events.
 function changeSelectedCalendar()
 {
 	//localStorage.clear();

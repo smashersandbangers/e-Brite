@@ -49,6 +49,9 @@
 				<h2><i class="fa fa-sliders" aria-hidden="true"></i> application-settings.js</h2>
 			</header>
 			<section class="card-block">
+				<p class="card-text"><strong>Purpose:</strong> Application wide settings configuration.</p>
+			</section>
+			<section class="card-block">
 				<h3 class="card-title">Global Variables</h3>
 				<ul class="list-group list-group-flush">
 					<li class="list-group-item">debug - turn on debug mode (verbose logging) for the application</li>
@@ -63,16 +66,24 @@
 				<h2><i class="fa fa-database" aria-hidden="true"></i> database.js</h2>
 			</header>
 			<section class="card-block">
+				<p class="card-text"><strong>Purpose:</strong> Facilitate and abstract the transfer of information within the application.</p>
+			</section>
+			<section class="card-block">
 				<h3 class="card-title">Functions</h3>
 				<ul class="list-group list-group-flush">
-					<li class="list-group-item">addEventToCalendar(calendarName) - SUGGESTED - method to save a new event, event details are grabbed from input elements</li>
+					<li class="list-group-item">addAttendeeToEvent(calendarName, eventid) - add a new attendee to a e-Brite event</li>
+					<li class="list-group-item">addEventToCalendar(calendarName) - method to save a new event, event details are grabbed from input elements</li>
 					<li class="list-group-item">getCalendarEvents(calendarName) - returns a JSON string of all events associated with local storage key value calendarName</li>
 					<li class="list-group-item">getCalendarEventTitles(calendarName) - returns a simple array of event titles</li>
 					<li class="list-group-item">getEventAttendees(calendarName, eventid) - returns the attendees array object associated with the event</li>
 					<li class="list-group-item">getEvent(calendarName, eventid) - <i>updated function signature</i> - returns a single event, based on id, from the chosen calendar</li>
 					<li class="list-group-item">getEventAttendees(calendarName, eventid) - returns a JSON string of event attendees</li>
+					<li class="list-group-item">getNewEventid(calendarName) - returns the next available eventid for the specified calendar</li>
 					<li class="list-group-item">saveCalendarEvents(calendarName, eventsObject) - places the events in local storage using key value calendarName</li>
+					<li class="list-group-item">saveFullCalendarEvents(calendarName, fullCalendarEvents) - because FullCalendar events are far more complex than e-Brite events, we have created this function to take only what we want from a FullCalendar event.</li>
 				</ul>
+			</section>
+			<section class="card-block">
 				<h4 class="card-title">Deprecated functions</h4>
 				<ul class="list-group list-group-flush">
 					<li class="list-group-item">getEvents() - use getCalendarEvents(calendarName) instead</li>
@@ -86,9 +97,15 @@
 				<h2><i class="fa fa-television" aria-hidden="true"></i> presentation.js</h2>
 			</header>
 			<section class="card-block">
+				<p class="card-text"><strong>Purpose:</strong> Specific functions to display information on pages.</p>
+			</section>
+			<section class="card-block">
 				<h3 class="card-title">Functions</h3>
 				<ul class="list-group list-group-flush">
 					<li class="list-group-item">printAttendeesHTML(calendarName, eventid) - using the pass id of the event and associated calendar name, will attach a ul list to a id selector attendeesList</li>
+					<li class="list-group-item">printEventDetailsHTML(calendarName, eventid) - prints the event details of a single events, uses id selector called eventDetails</li>
+					<li class="list-group-item">printEventsHTML(calendarName) - printing the list of all Calendar Events, div with id of events needs to exist on page</li>
+					<li class="list-group-item">printEventResults(calendarName) - displays a list of found events based on a match within the title, uses id selector eventResults</li>
 				</ul>
 			</section>
 		</section>
@@ -98,11 +115,13 @@
 				<h2><i class="fa fa-wrench" aria-hidden="true"></i> utility.js</h2>
 			</header>
 			<section class="card-block">
-				<p class="card-text">Used for helper functions.</p>
+				<p class="card-text"><strong>Purpose:</strong> Everything else that doesn't have a home, generally helper functions.</p>
+			</section>
+			<section class="card-block">
 				<h3 class="card-title">Functions</h3>
 				<ul class="list-group list-group-flush">
 					<li class="list-group-item">addCalendarsToNavBar() - adds all existing calendar names in local storage <strong>not fully implemented yet</strong></li>
-					<li class="list-group-item">changeSelectedCalendar - this gets called with the calendar drop down lists changes.  It updates the FullCalendar with the new set of events.</li>
+					<li class="list-group-item">changeSelectedCalendar() - this gets called with the calendar drop down lists changes.  It updates the FullCalendar with the new set of events.</li>
 					<li class="list-group-item">getCurrentCalendar() - returns the currently selected calendarName value from the drop down list</li>
 					<li class="list-group-item">getParamValue(paramName) - returns the matching value for the passed parameter name (paramName) from the URL.  For example,
 						<ul>

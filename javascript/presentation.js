@@ -66,6 +66,7 @@ function printEventsHTML(calendarName)
 	myDiv.innerHTML = eventList;
 }
 
+//prints the event details of a single events, uses id selector called eventDetails
 function printEventDetailsHTML(calendarName, eventid)
 {
 	var myDiv = jQuery('#eventDetails');
@@ -88,6 +89,7 @@ function printEventDetailsHTML(calendarName, eventid)
 	}
 }
 
+//displays a list of found events based on a match within the title, uses id selector eventResults
 function printEventResults(calendarName)
 {
 	var searchTerm = jQuery('#searchTerm')[0].value;
@@ -106,7 +108,7 @@ function printEventResults(calendarName)
 	jQuery('#eventResults')[0].innerHTML = '<ul>'+myResults+'</ul>';
 }
 
-//phil's function
+//prints a single event's data to the screen
 function printSingleEventData(myCalendarName, eventid)
 {
 	document.write( "<h3>"+myCalendarName.replace(/_/g, ' ')+"</h3>");

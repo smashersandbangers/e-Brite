@@ -1,4 +1,4 @@
-//returns all events (for now, i would like to add after-date variable)
+//Purpose of the file: Facilitate and abstract the transfer of information within the application.
 
 //deprecated, don't use
 function getEvents()
@@ -41,9 +41,10 @@ function getEvent(eventid)
 	return defaultTestEvent;
 }
 
-//UPDATED signature!! returns a single event based on the eventid
+//returns a single event based on the eventid
 function getEvent(calendarName, eventid)
 {
+	//for demo purposes we have created a default not-found event that gets returned
 	var defaultTestEvent = {
 		'eventid': '01',
 		'title': 'No Event Found',
@@ -68,7 +69,7 @@ function getEvent(calendarName, eventid)
 	return defaultTestEvent;
 }
 
-//stub method for retrieve attendees
+//method for retrieving attendees
 function getEventAttendees(calendarName, eventid)
 {	
 	var myEvent = getEvent( calendarName, eventid );
@@ -76,7 +77,7 @@ function getEventAttendees(calendarName, eventid)
 	return myEvent.attendees;
 }
 
-//implementing storing the event to the local storage
+//implementing the storing of events to the local storage
 function saveCalendarEvents(calendarName, eventsObject)
 {
 	localStorage.setItem(calendarName, JSON.stringify(eventsObject));
@@ -121,6 +122,7 @@ function addEventToCalendar(calendarName)
 	saveCalendarEvents( calendarName, myCalendar);
 }
 
+//retrieves an array list of event titles based on the provided calendar name
 function getCalendarEventTitles(calendarName)
 {
 	var myEvents = JSON.parse(localStorage.getItem(calendarName));
@@ -136,7 +138,10 @@ function getCalendarEventTitles(calendarName)
 	return myTitles;
 }
 
-//this has a horrible performance value
+/*
+because FullCalendar events are far more complex than e-Brite events, we have
+created this function to take only what we want from a FullCalendar event.
+*/
 function saveFullCalendarEvents(calendarName, fullCalendarEvents)
 {
 	console.log('save full calendar');
@@ -163,6 +168,7 @@ console.log(JSON.stringify(myEvents[0]));
 	
 }
 
+//returns the next available eventid for a specific calendar
 function getNewEventid(calendarName)
 {
 	var myCalendar = getCalendarEvents( calendarName );
@@ -224,6 +230,7 @@ function updateEventDetails(calendarName, eventid)
 	}
 }
 
+//add a new attendee to a e-Brite event
 function addAttendeeToEvent(calendarName, eventid)
 {
 	console.log("begin add attendee (micah)")
